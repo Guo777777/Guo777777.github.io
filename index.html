@@ -382,24 +382,20 @@
     .pub-list { display: flex; flex-direction: column; gap: 1.2rem; }
 
     .pub-card {
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 1.5rem;
       background: var(--card-bg);
       border-radius: 10px;
       padding: 1.4rem;
       box-shadow: 0 2px 12px rgba(0,0,0,0.05);
       border: 1px solid var(--border);
       transition: box-shadow 0.2s;
-      align-items: start;
     }
     .pub-card:hover { box-shadow: 0 8px 30px rgba(1,33,105,0.1); }
 
     .pub-body {
       display: grid;
-      grid-template-columns: 1fr 160px;
-      gap: 1.2rem;
-      align-items: start;
+      grid-template-columns: 330px 1fr;
+      gap: 1.4rem;
+      align-items: center;
     }
 
     .pub-img-wrap {
@@ -845,17 +841,18 @@
 
     <div class="pub-list">
 
-      <!-- Pub 1 -->
       <div class="pub-card">
-        <div class="pub-venue-badge">
-          <div class="venue-pill conf">MICCAI<br/>2024</div>
-        </div>
         <div class="pub-body">
+          <div class="pub-img-wrap" onclick="document.getElementById('lb1').classList.add('open')">
+            <img src="./assets/1.png" alt="Publication figure" class="pub-img">
+            <div class="pub-img-overlay"></div>
+          </div>
           <div>
             <div class="pub-title">Efficient Semi-supervised Tooth Instance Segmentation in Panoramic X-Rays Using ResUnet50 and SAM Networks</div>
             <div class="pub-authors"><strong>Xinge Guo</strong>, W. Liu, Z. Cui</div>
             <div class="pub-meta">International Conference on Medical Image Computing and Computer-Assisted Intervention (MICCAI), 2024, pp. 131–145. Springer Nature Switzerland.</div>
             <div class="pub-links">
+              <span class="venue-pill conf" style="font-size:0.7rem;padding:0.25rem 0.6rem;">MICCAI 2024</span>
               <a href="https://link.springer.com/chapter/10.1007/978-3-031-88977-6_13" class="pub-link" target="_blank">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                 Paper
@@ -873,24 +870,22 @@
               </button>
             </div>
           </div>
-          <div class="pub-img-wrap" onclick="document.getElementById('lb1').classList.add('open')">
-            <img src="./assets/1.png" alt="Publication figure" class="pub-img">
-            <div class="pub-img-overlay"></div>
-          </div>
         </div>
       </div>
 
       <!-- Pub 2 -->
       <div class="pub-card">
-        <div class="pub-venue-badge">
-          <div class="venue-pill journal">BMC Oral<br/>Health</div>
-        </div>
         <div class="pub-body">
+          <div class="pub-img-wrap" onclick="document.getElementById('lb2').classList.add('open')">
+            <img src="./assets/2.png" alt="Publication figure" class="pub-img">
+            <div class="pub-img-overlay"></div>
+          </div>
           <div>
             <div class="pub-title">Cone-beam CT Landmark Detection for Measuring Basal Bone Width: A Retrospective Validation Study</div>
             <div class="pub-authors">J. Dai, <strong>X. Guo</strong>, H. Zhang, et al.</div>
             <div class="pub-meta">BMC Oral Health, 2024, 24(1): 1091.</div>
             <div class="pub-links">
+              <span class="venue-pill journal" style="font-size:0.7rem;padding:0.25rem 0.6rem;">BMC Oral Health</span>
               <a href="https://link.springer.com/article/10.1186/s12903-024-04798-2" class="pub-link" target="_blank">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                 Paper
@@ -909,10 +904,6 @@
                 Bib
               </button>
             </div>
-          </div>
-          <div class="pub-img-wrap" onclick="document.getElementById('lb2').classList.add('open')">
-            <img src="./assets/2.png" alt="Publication figure" class="pub-img">
-            <div class="pub-img-overlay"></div>
           </div>
         </div>
       </div>
