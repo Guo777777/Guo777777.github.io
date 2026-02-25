@@ -391,16 +391,71 @@
       box-shadow: 0 2px 12px rgba(0,0,0,0.05);
       border: 1px solid var(--border);
       transition: box-shadow 0.2s;
-      align-items: center;
+      align-items: start;
     }
     .pub-card:hover { box-shadow: 0 8px 30px rgba(1,33,105,0.1); }
 
+    .pub-body {
+      display: grid;
+      grid-template-columns: 1fr 160px;
+      gap: 1.2rem;
+      align-items: start;
+    }
+
+    .pub-img-wrap {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      aspect-ratio: 4/3;
+      cursor: zoom-in;
+      flex-shrink: 0;
+    }
+
     .pub-img {
       width: 100%;
-      border-radius: 6px;
+      height: 100%;
       object-fit: cover;
-      border: 1px solid var(--border);
-      margin-bottom: 0.8rem;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .pub-img-wrap:hover .pub-img {
+      transform: scale(1.04);
+    }
+
+    .pub-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(1,33,105,0.0);
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pub-img-wrap:hover .pub-img-overlay {
+      background: rgba(1,33,105,0.08);
+    }
+
+    /* Lightbox */
+    .pub-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(4px);
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    .pub-lightbox.open { display: flex; }
+    .pub-lightbox img {
+      max-width: 88vw;
+      max-height: 88vh;
+      border-radius: 10px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.4);
     }
 
     .pub-venue-badge {
@@ -795,17 +850,17 @@
         <div class="pub-venue-badge">
           <div class="venue-pill conf">MICCAI<br/>2024</div>
         </div>
-        <div>
-          <div class="pub-title">Efficient Semi-supervised Tooth Instance Segmentation in Panoramic X-Rays Using ResUnet50 and SAM Networks</div>
-          <div class="pub-authors"><strong>Xinge Guo</strong>, W. Liu, Z. Cui</div>
-          <div class="pub-meta">International Conference on Medical Image Computing and Computer-Assisted Intervention (MICCAI), 2024, pp. 131–145. Springer Nature Switzerland.</div>
-          <img src="./assets/1.png" alt="Publication figure" class="pub-img">
-          <div class="pub-links">
-            <a href="https://link.springer.com/chapter/10.1007/978-3-031-88977-6_13" class="pub-link" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              Paper
-            </a>
-            <button class="pub-link bib-btn" onclick="copyBib(this, `@inproceedings{guo2024efficient,
+        <div class="pub-body">
+          <div>
+            <div class="pub-title">Efficient Semi-supervised Tooth Instance Segmentation in Panoramic X-Rays Using ResUnet50 and SAM Networks</div>
+            <div class="pub-authors"><strong>Xinge Guo</strong>, W. Liu, Z. Cui</div>
+            <div class="pub-meta">International Conference on Medical Image Computing and Computer-Assisted Intervention (MICCAI), 2024, pp. 131–145. Springer Nature Switzerland.</div>
+            <div class="pub-links">
+              <a href="https://link.springer.com/chapter/10.1007/978-3-031-88977-6_13" class="pub-link" target="_blank">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Paper
+              </a>
+              <button class="pub-link bib-btn" onclick="copyBib(this, `@inproceedings{guo2024efficient,
   title={Efficient Semi-supervised Tooth Instance Segmentation in Panoramic X-Rays Using ResUnet50 and SAM Networks},
   author={Guo, Xinge and Liu, Wenxi and Cui, Zihao},
   booktitle={International Conference on Medical Image Computing and Computer-Assisted Intervention},
@@ -813,9 +868,14 @@
   year={2024},
   organization={Springer}
 }`)">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
-              Bib
-            </button>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+                Bib
+              </button>
+            </div>
+          </div>
+          <div class="pub-img-wrap" onclick="document.getElementById('lb1').classList.add('open')">
+            <img src="./assets/1.png" alt="Publication figure" class="pub-img">
+            <div class="pub-img-overlay"></div>
           </div>
         </div>
       </div>
@@ -825,17 +885,17 @@
         <div class="pub-venue-badge">
           <div class="venue-pill journal">BMC Oral<br/>Health</div>
         </div>
-        <div>
-          <div class="pub-title">Cone-beam CT Landmark Detection for Measuring Basal Bone Width: A Retrospective Validation Study</div>
-          <div class="pub-authors">J. Dai, <strong>X. Guo</strong>, H. Zhang, et al.</div>
-          <div class="pub-meta">BMC Oral Health, 2024, 24(1): 1091.</div>
-          <img src="./assets/2.png" alt="Publication figure" class="pub-img">
-          <div class="pub-links">
-            <a href="https://link.springer.com/article/10.1186/s12903-024-04798-2" class="pub-link" target="_blank">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              Paper
-            </a>
-            <button class="pub-link bib-btn" onclick="copyBib(this, `@article{dai2024cone,
+        <div class="pub-body">
+          <div>
+            <div class="pub-title">Cone-beam CT Landmark Detection for Measuring Basal Bone Width: A Retrospective Validation Study</div>
+            <div class="pub-authors">J. Dai, <strong>X. Guo</strong>, H. Zhang, et al.</div>
+            <div class="pub-meta">BMC Oral Health, 2024, 24(1): 1091.</div>
+            <div class="pub-links">
+              <a href="https://link.springer.com/article/10.1186/s12903-024-04798-2" class="pub-link" target="_blank">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Paper
+              </a>
+              <button class="pub-link bib-btn" onclick="copyBib(this, `@article{dai2024cone,
   title={Cone-beam CT landmark detection for measuring basal bone width: a retrospective validation study},
   author={Dai, Juan and Guo, Xinge and Zhang, Hongyuan and Xie, Haoyu and Huang, Jiahui and Huang, Qiangtai and Huang, Bingsheng},
   journal={BMC Oral Health},
@@ -845,13 +905,26 @@
   year={2024},
   publisher={Springer}
 }`)">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
-              Bib
-            </button>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+                Bib
+              </button>
+            </div>
+          </div>
+          <div class="pub-img-wrap" onclick="document.getElementById('lb2').classList.add('open')">
+            <img src="./assets/2.png" alt="Publication figure" class="pub-img">
+            <div class="pub-img-overlay"></div>
           </div>
         </div>
       </div>
 
+    </div>
+
+    <!-- Lightboxes -->
+    <div id="lb1" class="pub-lightbox" onclick="this.classList.remove('open')">
+      <img src="./assets/1.png" alt="Publication figure">
+    </div>
+    <div id="lb2" class="pub-lightbox" onclick="this.classList.remove('open')">
+      <img src="./assets/2.png" alt="Publication figure">
     </div>
   </div>
 </section>
