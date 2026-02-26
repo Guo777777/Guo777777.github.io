@@ -681,6 +681,29 @@
       color: #16a34a;
       border-color: #16a34a;
     }
+
+    /* Scrollable window */
+    .scroll-window {
+      max-height: 560px;
+      overflow-y: auto;
+      padding-right: 0.4rem;
+      scrollbar-width: thin;
+      scrollbar-color: var(--duke-navy) var(--border);
+    }
+    .scroll-window::-webkit-scrollbar {
+      width: 6px;
+    }
+    .scroll-window::-webkit-scrollbar-track {
+      background: var(--border);
+      border-radius: 10px;
+    }
+    .scroll-window::-webkit-scrollbar-thumb {
+      background: var(--duke-navy);
+      border-radius: 10px;
+    }
+    .scroll-window::-webkit-scrollbar-thumb:hover {
+      background: var(--duke-blue);
+    }
   </style>
 </head>
 <body>
@@ -690,8 +713,8 @@
   <div class="nav-brand">Xinge Guo</div>
   <ul class="nav-links">
     <li><a href="#bio">Bio</a></li>
-    <li><a href="#news">News</a></li>
     <li><a href="#publications">Publications</a></li>
+    <li><a href="#news">News</a></li>
     <li><a href="#awards">Awards</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -772,62 +795,6 @@
 
 <div class="stripe"></div>
 
-<!-- NEWS -->
-<section id="news">
-  <div class="section">
-    <div class="section-header">
-      <h2 class="section-title">News</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="news-list">
-      <div class="news-item">
-        <div class="news-date">Sep 2025</div>
-        <div class="news-text">
-          <span class="badge" style="background:#FCD34D;">New</span>
-          Started my research project on <em>Evaluation of Image Segmentation Difficulty Based on Reinforcement Learning</em>
-          at the VIP Lab, Duke University.
-        </div>
-      </div>
-      <div class="news-item">
-        <div class="news-date">Aug 2025</div>
-        <div class="news-text">
-          Joined Duke University as an M.S. student in Biomedical Engineering. Awarded
-          <strong>Research Fellowship for BME MS/MEng Students</strong> (Fall 2025 &amp; Spring 2026) and
-          <strong>Merit-based Scholarship</strong> (Fall 2025).
-        </div>
-      </div>
-      <div class="news-item">
-        <div class="news-date">Jun 2025</div>
-        <div class="news-text">
-          Graduated from Shenzhen University with a B.E. in Biomedical Engineering (Class of Excellence).
-        </div>
-      </div>
-      <div class="news-item">
-        <div class="news-date">Oct 2024</div>
-        <div class="news-text">
-          <span class="badge badge-gold" style="background:var(--duke-navy)">Conference</span>
-          Paper accepted at MICCAI 2024 (STS Challenge): <em>Efficient Semi-supervised Tooth Instance Segmentation in Panoramic X-Rays Using ResUnet50 and SAM Networks</em>.
-        </div>
-      </div>
-      <div class="news-item">
-        <div class="news-date">Sep 2024</div>
-        <div class="news-text">
-          <span class="badge" style="background:var(--accent)">Journal</span>
-          Paper published in <strong>BMC Oral Health</strong>: CBCT landmark detection for measuring basal bone width.
-        </div>
-      </div>
-      <div class="news-item">
-        <div class="news-date">Jul 2024</div>
-        <div class="news-text">
-          Completed research internship at <strong>Department of Radiology and Nuclear Medicine, Erasmus University Medical Center</strong> (Rotterdam, Netherlands) — GWAS on AI-based phenotypes derived from structural brain MRI (UKBB cohort).
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="stripe"></div>
-
 <!-- PUBLICATIONS -->
 <section id="publications">
   <div class="section">
@@ -836,7 +803,7 @@
       <div class="section-line"></div>
     </div>
 
-    <div class="pub-list">
+    <div class="pub-list scroll-window">
 
       <div class="pub-card">
         <div class="pub-body">
@@ -918,6 +885,60 @@
 </section>
 
 <div class="stripe"></div>
+
+<!-- NEWS -->
+<section id="news">
+  <div class="section">
+    <div class="section-header">
+      <h2 class="section-title">News</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="news-list scroll-window">
+      <div class="news-item">
+        <div class="news-date">Sep 2025</div>
+        <div class="news-text">
+          <span class="badge" style="background:#FCD34D;">New</span>
+          Started my research project on <em>Evaluation of Image Segmentation Difficulty Based on Reinforcement Learning</em>
+          at the VIP Lab, Duke University.
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Aug 2025</div>
+        <div class="news-text">
+          Joined Duke University as an M.S. student in Biomedical Engineering. Awarded
+          <strong>Research Fellowship for BME MS/MEng Students</strong> (Fall 2025 &amp; Spring 2026) and
+          <strong>Merit-based Scholarship</strong> (Fall 2025).
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Jun 2025</div>
+        <div class="news-text">
+          Graduated from Shenzhen University with a B.E. in Biomedical Engineering (Class of Excellence).
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Oct 2024</div>
+        <div class="news-text">
+          <span class="badge badge-gold" style="background:var(--duke-navy)">Conference</span>
+          Paper accepted at MICCAI 2024 (STS Challenge): <em>Efficient Semi-supervised Tooth Instance Segmentation in Panoramic X-Rays Using ResUnet50 and SAM Networks</em>.
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Sep 2024</div>
+        <div class="news-text">
+          <span class="badge" style="background:var(--accent)">Journal</span>
+          Paper published in <strong>BMC Oral Health</strong>: CBCT landmark detection for measuring basal bone width.
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Jul 2024</div>
+        <div class="news-text">
+          Completed research internship at <strong>Department of Radiology and Nuclear Medicine, Erasmus University Medical Center</strong> (Rotterdam, Netherlands) — GWAS on AI-based phenotypes derived from structural brain MRI (UKBB cohort).
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- AWARDS -->
 <section id="awards">
