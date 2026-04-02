@@ -1083,15 +1083,26 @@
 </section>
 <script>
   function copyBib(btn, text) {
-    navigator.clipboard.writeText(text).then(function() {
-      btn.classList.add('copied');
-      var original = btn.innerHTML;
-      btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Copied!';
-      setTimeout(function() {
-        btn.innerHTML = original;
-        btn.classList.remove('copied');
-      }, 2000);
-    });
+    var bibSvg = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>';
+    var checkSvg = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>';
+
+    try {
+      navigator.clipboard.writeText(text);
+    } catch(e) {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    }
+
+    btn.classList.add('copied');
+    btn.innerHTML = checkSvg + ' Copied!';
+    setTimeout(function() {
+      btn.innerHTML = bibSvg + '\n                Bib\n              ';
+      btn.classList.remove('copied');
+    }, 2000);
   }
 </script>
 
