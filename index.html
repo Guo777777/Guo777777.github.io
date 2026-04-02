@@ -1083,4 +1083,21 @@
 </section>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   function copyBib(btn, text) {
-    navigator.clipboard.writeText(tex
+    navigator.clipboard.writeText(text).then(function() {
+      btn.classList.add('copied');
+      var original = btn.innerHTML;
+      btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Copied!';
+      setTimeout(function() {
+        btn.innerHTML = original;
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+</script>
+
+<footer>
+  <p>&copy; 2026 Xinge Guo · Duke University</p>
+</footer>
+
+</body>
+</html>
