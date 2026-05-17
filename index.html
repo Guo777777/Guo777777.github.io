@@ -393,9 +393,13 @@
 
     .pub-body {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 280px 1fr;
       gap: 1.4rem;
       align-items: center;
+    }
+    .pub-body > div { min-width: 0; }
+    @media (max-width: 640px) {
+      .pub-body { grid-template-columns: 1fr; }
     }
 
     .pub-img-wrap {
