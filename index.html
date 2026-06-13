@@ -51,9 +51,13 @@
       background:var(--blue);border-radius:2px;transition:right .28s ease;}
     .nav-links a:not(.nav-cv):hover::after,.nav-links a.active::after{right:0;}
     .nav-links a:hover,.nav-links a.active{color:var(--ink);}
-    .nav-cv{background:var(--navy);color:#fff!important;padding:0.5rem 1.1rem;border-radius:100px;
-      font-size:0.85rem;transition:all .2s;}
-    .nav-cv:hover{background:var(--royal);transform:translateY(-1px);}
+    .nav-cv{display:inline-flex;align-items:center;gap:0.45rem;background:transparent;color:var(--navy)!important;
+      border:1.5px solid var(--line-2);padding:0.46rem 1.05rem;border-radius:100px;
+      font-size:0.85rem;font-weight:600;transition:all .22s;}
+    .nav-cv svg{transition:transform .22s;}
+    .nav-cv:hover{background:var(--navy);color:#fff!important;border-color:var(--navy);
+      transform:translateY(-1px);box-shadow:0 7px 18px rgba(1,33,105,0.22);}
+    .nav-cv:hover svg{transform:translateY(-1px);}
 
     /* ─── HERO ─── */
     .hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 60px;}
@@ -110,16 +114,16 @@
       line-height:1.4;letter-spacing:-0.015em;color:var(--muted);max-width:42ch;margin-top:1.2rem;}
     .research-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:4rem;align-items:center;}
     .focus-list{display:flex;flex-direction:column;}
-    .focus-item{position:relative;padding:1.5rem 0;border-top:1px solid var(--line);transition:padding-left .3s;cursor:default;}
+    .focus-item{position:relative;padding:1.5rem 0;border-top:1px solid var(--line);cursor:default;}
     .focus-item:last-child{border-bottom:1px solid var(--line);}
     .focus-item::before{content:"";position:absolute;left:-4px;top:50%;width:0;height:0;border-radius:50%;
       background:var(--blue);transform:translateY(-50%);transition:all .3s;}
-    .focus-item:hover{padding-left:1.3rem;}
     .focus-item:hover::before{width:8px;height:8px;left:0;box-shadow:0 0 0 4px rgba(31,95,204,0.12);}
     .focus-name{font-family:'Inter Tight',sans-serif;font-weight:600;font-size:1.4rem;letter-spacing:-0.02em;
-      color:var(--ink);margin-bottom:0.35rem;transition:color .25s;}
+      color:var(--ink);margin-bottom:0.35rem;transition:color .25s,transform .3s;will-change:transform;}
+    .focus-desc{font-size:0.96rem;color:var(--muted);line-height:1.55;transition:transform .3s;will-change:transform;}
     .focus-item:hover .focus-name{color:var(--navy);}
-    .focus-desc{font-size:0.96rem;color:var(--muted);line-height:1.55;}
+    .focus-item:hover .focus-name,.focus-item:hover .focus-desc{transform:translateX(14px);}
     .sphere-block{display:flex;flex-direction:column;align-items:center;gap:1rem;}
     #sphere{width:100%;max-width:420px;aspect-ratio:1;display:block;}
     .sphere-cap{font-size:0.82rem;color:var(--muted-2);text-align:center;letter-spacing:0.01em;max-width:34ch;}
@@ -252,7 +256,7 @@
     <li><a href="#publications">Publications</a></li>
     <li><a href="#news">News</a></li>
     <li><a href="#awards">Awards</a></li>
-    <li class="cv-li"><a href="https://guo777777.github.io/CV-Xinge%20Guo%20updated.pdf" target="_blank" class="nav-cv">CV ↗</a></li>
+    <li class="cv-li"><a href="https://guo777777.github.io/CV-Xinge%20Guo%20updated.pdf" target="_blank" class="nav-cv"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>CV</a></li>
   </ul>
 </nav>
 
