@@ -6,292 +6,330 @@
   <title>Xinge Guo | Duke BME</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet"/>
   <style>
     :root{
-      --bg:#050E22;            /* Duke-navy dark field */
-      --panel:#0B1733;
-      --panel-2:#11224A;
-      --paper:#F6F8FC;
-      --navy:#012169;          /* Duke navy (official) */
-      --royal:#00539B;         /* Duke royal blue */
-      --blue:#4F90E6;          /* bright accent (Duke blue family) */
-      --blue-soft:#2C5DA8;
-      --gold:#F1B82D;          /* Duke gold */
-      --tx:#EAF0FB;
-      --tx-2:#9AABCB;
-      --tx-3:#5C6E92;
-      --line:rgba(110,150,220,0.14);
-      --line-2:rgba(110,150,220,0.28);
+      --bg:#FFFFFF;
+      --bg-soft:#F4F6F9;
+      --ink:#0B1A33;          /* deep navy text */
+      --navy:#012169;         /* Duke navy */
+      --royal:#00539B;        /* Duke royal */
+      --blue:#1F5FCC;         /* accent link blue */
+      --gold:#A8780A;         /* deep Duke gold (readable on white) */
+      --muted:#5C6B85;
+      --muted-2:#8493AD;
+      --line:rgba(11,26,51,0.10);
+      --line-2:rgba(11,26,51,0.16);
+      --shadow:0 14px 40px rgba(11,26,51,0.08);
+      --shadow-lg:0 26px 70px rgba(11,26,51,0.14);
     }
-
     *{margin:0;padding:0;box-sizing:border-box;}
     html{font-size:17px;-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
     @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
-
-    body{
-      font-family:'Inter',system-ui,sans-serif;color:var(--tx);
-      background:var(--bg);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;
-    }
-    .mono{font-family:'IBM Plex Mono',monospace;}
-    .wrap{max-width:1180px;margin:0 auto;padding:0 2.2rem;}
-    .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;letter-spacing:0.22em;
-      text-transform:uppercase;color:var(--blue);}
+    body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--bg);
+      line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;letter-spacing:-0.005em;}
+    .tight{font-family:'Inter Tight','Inter',sans-serif;}
+    .wrap{max-width:1160px;margin:0 auto;padding:0 2.4rem;}
+    .eyebrow{font-size:0.74rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue);}
     a{color:inherit;}
-    ::selection{background:var(--blue);color:#fff;}
-    :focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:2px;}
+    ::selection{background:var(--navy);color:#fff;}
+    :focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:3px;}
 
     /* ─── NAV ─── */
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;
-      justify-content:space-between;padding:0 2.2rem;height:62px;
-      background:rgba(5,14,34,0.7);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
-    .brand{display:flex;align-items:center;gap:0.7rem;
-      font-family:'IBM Plex Mono',monospace;font-size:0.82rem;letter-spacing:0.18em;color:var(--tx);}
-    .crest{width:30px;height:30px;border-radius:50%;background:#fff;padding:3px;object-fit:contain;
-      box-shadow:0 0 0 1px var(--line-2);}
-    .nav-links{display:flex;gap:1.9rem;list-style:none;align-items:center;}
-    .nav-links a{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;
-      text-transform:uppercase;color:var(--tx-2);text-decoration:none;transition:color .2s;position:relative;padding:4px 0;}
-    .nav-links a:not(.nav-cv)::after{content:"";position:absolute;left:0;right:100%;bottom:-2px;height:1.5px;
-      background:var(--blue);transition:right .28s ease;}
+      justify-content:space-between;padding:0 2.4rem;height:74px;
+      background:rgba(255,255,255,0);backdrop-filter:blur(0);transition:all .3s;}
+    nav.scrolled{background:rgba(255,255,255,0.82);backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--line);height:64px;}
+    .brand{display:flex;align-items:center;gap:0.8rem;font-family:'Inter Tight',sans-serif;
+      font-weight:600;font-size:1.05rem;letter-spacing:-0.01em;color:var(--ink);}
+    .brand .crest{width:38px;height:38px;object-fit:contain;}
+    .nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
+    .nav-links a{font-size:0.9rem;font-weight:500;color:var(--muted);text-decoration:none;
+      transition:color .2s;position:relative;padding:4px 0;}
+    .nav-links a:not(.nav-cv)::after{content:"";position:absolute;left:0;right:100%;bottom:-1px;height:2px;
+      background:var(--blue);border-radius:2px;transition:right .28s ease;}
     .nav-links a:not(.nav-cv):hover::after,.nav-links a.active::after{right:0;}
-    .nav-links a:hover,.nav-links a.active{color:var(--blue);}
-    .nav-cv{border:1px solid var(--line-2);padding:0.4rem 0.9rem;border-radius:3px;color:var(--tx)!important;transition:all .2s;}
-    .nav-cv:hover{border-color:var(--blue);color:var(--blue)!important;background:rgba(79,144,230,0.06);}
+    .nav-links a:hover,.nav-links a.active{color:var(--ink);}
+    .nav-cv{background:var(--navy);color:#fff!important;padding:0.5rem 1.1rem;border-radius:100px;
+      font-size:0.85rem;transition:all .2s;}
+    .nav-cv:hover{background:var(--royal);transform:translateY(-1px);}
 
     /* ─── HERO ─── */
-    .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;}
-    #sphere{position:absolute;inset:0;width:100%;height:100%;z-index:0;}
-    .hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-      background:linear-gradient(100deg,var(--bg) 12%,rgba(5,14,34,0.78) 42%,rgba(5,14,34,0.15) 72%,rgba(5,14,34,0) 100%);}
-    .hero-inner{position:relative;z-index:2;width:100%;}
-    .hero-grid{max-width:1180px;margin:0 auto;padding:0 2.2rem;}
-    .hero-grid>*{animation:heroUp .85s cubic-bezier(.2,.7,.2,1) backwards;}
-    .hero-id{animation-delay:.04s;}
-    h1{animation-delay:.14s;}
-    .hero-role{animation-delay:.22s;}
-    .hero-inst{animation-delay:.28s;}
-    .hero-bio{animation-delay:.34s;}
-    .focus-chips{animation-delay:.42s;}
-    .hero-links{animation-delay:.5s;}
-    @keyframes heroUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:none;}}
-    @media (prefers-reduced-motion:reduce){.hero-grid>*{animation:none;}}
+    .hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 60px;}
+    .hero-grid{display:grid;grid-template-columns:1fr auto;gap:4.5rem;align-items:center;width:100%;}
+    .hero-text>*{animation:up .9s cubic-bezier(.2,.7,.2,1) backwards;}
+    .hero-eye{animation-delay:.05s;}
+    .hero-name{animation-delay:.13s;}
+    .hero-role{animation-delay:.2s;}
+    .hero-lead{animation-delay:.27s;}
+    .hero-cta{animation-delay:.36s;}
+    .hero-photo-wrap{animation:up .9s .18s cubic-bezier(.2,.7,.2,1) backwards;}
+    @keyframes up{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:none;}}
+    @media (prefers-reduced-motion:reduce){.hero-text>*,.hero-photo-wrap{animation:none;}}
 
-    .hero-id{display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem;}
-    .avatar{width:60px;height:60px;border-radius:8px;object-fit:cover;border:1px solid var(--line-2);
-      filter:grayscale(30%) contrast(1.05);box-shadow:0 0 0 4px rgba(79,144,230,0.07);}
-    .hero-id .eyebrow{display:block;margin-bottom:0.3rem;}
-    .hero-id .loc{font-size:0.78rem;color:var(--tx-2);}
-    h1{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:500;
-      font-size:clamp(3.2rem,7vw,5.4rem);line-height:0.98;letter-spacing:-0.01em;color:var(--tx);margin-bottom:1.1rem;}
-    h1 .accent{color:var(--blue);}
-    .hero-role{font-size:1.05rem;color:var(--tx);font-weight:500;margin-bottom:0.15rem;}
-    .hero-inst{font-size:0.92rem;color:var(--tx-2);margin-bottom:1.6rem;}
-    .hero-inst a{color:var(--blue);text-decoration:none;}
-    .hero-inst a:hover{text-decoration:underline;}
-    .hero-bio{font-size:0.98rem;line-height:1.78;color:var(--tx-2);max-width:580px;margin-bottom:1.8rem;}
-    .hero-bio strong{color:var(--tx);font-weight:600;}
-    .focus-chips{display:flex;flex-wrap:wrap;gap:0.45rem;margin-bottom:2rem;}
-    .chip{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;letter-spacing:0.06em;color:var(--tx-2);
-      border:1px solid var(--line);padding:0.32rem 0.7rem;border-radius:3px;background:rgba(255,255,255,0.015);transition:all .2s;}
-    .chip::before{content:"+ ";color:var(--blue-soft);}
-    .chip:hover{border-color:var(--blue-soft);color:var(--tx);}
-    .hero-links{display:flex;gap:0.7rem;flex-wrap:wrap;}
-    .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.15rem;border-radius:4px;
-      font-family:'IBM Plex Mono',monospace;font-size:0.74rem;letter-spacing:0.06em;text-decoration:none;
-      cursor:pointer;border:1px solid transparent;transition:all .22s;}
-    .btn-primary{background:var(--blue);color:#fff;font-weight:500;}
-    .btn-primary:hover{background:#6aa3f0;box-shadow:0 6px 26px rgba(79,144,230,0.35);transform:translateY(-1px);}
-    .btn-ghost{border-color:var(--line-2);color:var(--tx);}
-    .btn-ghost:hover{border-color:var(--blue);color:var(--blue);background:rgba(79,144,230,0.05);}
+    .hero-eye{margin-bottom:1.4rem;}
+    .hero-name{font-family:'Inter Tight',sans-serif;font-weight:700;
+      font-size:clamp(3.6rem,8.5vw,6.6rem);line-height:0.92;letter-spacing:-0.035em;color:var(--ink);margin-bottom:1.3rem;}
+    .hero-name .last{color:var(--navy);}
+    .hero-role{font-size:clamp(1.1rem,2vw,1.35rem);font-weight:500;color:var(--muted);margin-bottom:1.8rem;}
+    .hero-role a{color:var(--blue);text-decoration:none;font-weight:600;}
+    .hero-role a:hover{text-decoration:underline;}
+    .hero-lead{font-family:'Inter Tight',sans-serif;font-weight:500;
+      font-size:clamp(1.35rem,2.6vw,1.95rem);line-height:1.3;letter-spacing:-0.02em;
+      color:var(--ink);max-width:30ch;margin-bottom:2.4rem;}
+    .hero-lead .hl{color:var(--blue);}
+    .hero-cta{display:flex;gap:0.8rem;flex-wrap:wrap;}
+    .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 1.5rem;border-radius:100px;
+      font-size:0.92rem;font-weight:600;text-decoration:none;cursor:pointer;border:1.5px solid transparent;transition:all .22s;}
+    .btn-primary{background:var(--navy);color:#fff;}
+    .btn-primary:hover{background:var(--royal);transform:translateY(-2px);box-shadow:0 12px 30px rgba(1,33,105,0.28);}
+    .btn-ghost{border-color:var(--line-2);color:var(--ink);background:#fff;}
+    .btn-ghost:hover{border-color:var(--navy);transform:translateY(-2px);box-shadow:var(--shadow);}
 
-    .scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;
-      font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;color:var(--tx-3);
-      text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:0.5rem;}
-    .scroll-cue .bar{width:1px;height:34px;background:linear-gradient(var(--blue),transparent);
-      animation:drop 2.4s ease-in-out infinite;}
-    @keyframes drop{0%,100%{opacity:0.3;transform:scaleY(0.6);transform-origin:top;}50%{opacity:1;transform:scaleY(1);}}
-    @media (prefers-reduced-motion:reduce){.scroll-cue .bar{animation:none;}}
+    .hero-photo-wrap{position:relative;}
+    .hero-photo{width:clamp(230px,28vw,330px);aspect-ratio:4/5;object-fit:cover;border-radius:24px;
+      box-shadow:var(--shadow-lg);display:block;}
+    .hero-photo-ring{position:absolute;inset:-14px;border-radius:34px;border:1px solid var(--line);z-index:-1;}
+    .hero-badge{position:absolute;left:-18px;bottom:26px;background:#fff;border-radius:16px;
+      box-shadow:var(--shadow);padding:0.7rem 1rem;display:flex;align-items:center;gap:0.7rem;}
+    .hero-badge .crest{width:34px;height:34px;object-fit:contain;}
+    .hero-badge .bt{font-family:'Inter Tight',sans-serif;font-weight:600;font-size:0.82rem;line-height:1.2;color:var(--navy);}
+    .hero-badge .bt small{display:block;font-family:'Inter',sans-serif;font-weight:500;font-size:0.7rem;color:var(--muted);}
 
     /* ─── SECTION SHELL ─── */
-    .block{padding:6rem 0;border-top:1px solid var(--line);}
-    .sec-head{display:flex;align-items:baseline;gap:1.1rem;margin-bottom:3rem;}
-    .sec-head .eyebrow{flex-shrink:0;}
-    .sec-title{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(1.8rem,3.4vw,2.6rem);
-      color:var(--tx);letter-spacing:-0.01em;line-height:1;}
-    .sec-rule{flex:1;height:1px;background:var(--line);}
+    .sec{padding:8rem 0;}
+    .sec.soft{background:var(--bg-soft);}
+    .sec-eye{display:block;margin-bottom:0.9rem;}
+    .sec-title{font-family:'Inter Tight',sans-serif;font-weight:700;
+      font-size:clamp(2.3rem,5vw,3.4rem);letter-spacing:-0.03em;line-height:1.02;color:var(--ink);}
+
+    /* ─── RESEARCH ─── */
+    .research-top{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:3.5rem;}
+    .research-lead{font-family:'Inter Tight',sans-serif;font-weight:500;font-size:clamp(1.2rem,2.2vw,1.55rem);
+      line-height:1.4;letter-spacing:-0.015em;color:var(--muted);max-width:42ch;margin-top:1.2rem;}
+    .research-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:4rem;align-items:center;}
+    .focus-list{display:flex;flex-direction:column;}
+    .focus-item{position:relative;padding:1.5rem 0;border-top:1px solid var(--line);transition:padding-left .3s;cursor:default;}
+    .focus-item:last-child{border-bottom:1px solid var(--line);}
+    .focus-item::before{content:"";position:absolute;left:-4px;top:50%;width:0;height:0;border-radius:50%;
+      background:var(--blue);transform:translateY(-50%);transition:all .3s;}
+    .focus-item:hover{padding-left:1.3rem;}
+    .focus-item:hover::before{width:8px;height:8px;left:0;box-shadow:0 0 0 4px rgba(31,95,204,0.12);}
+    .focus-name{font-family:'Inter Tight',sans-serif;font-weight:600;font-size:1.4rem;letter-spacing:-0.02em;
+      color:var(--ink);margin-bottom:0.35rem;transition:color .25s;}
+    .focus-item:hover .focus-name{color:var(--navy);}
+    .focus-desc{font-size:0.96rem;color:var(--muted);line-height:1.55;}
+    .sphere-block{display:flex;flex-direction:column;align-items:center;gap:1rem;}
+    #sphere{width:100%;max-width:420px;aspect-ratio:1;display:block;}
+    .sphere-cap{font-size:0.82rem;color:var(--muted-2);text-align:center;letter-spacing:0.01em;max-width:34ch;}
+    .sphere-cap b{color:var(--navy);font-weight:600;}
 
     /* ─── PUBLICATIONS ─── */
-    .pub{position:relative;display:flex;gap:1.6rem;align-items:stretch;background:var(--panel);
-      border:1px solid var(--line);border-radius:8px;padding:1.3rem;margin-bottom:1.1rem;
-      transition:border-color .25s,transform .25s,box-shadow .25s;}
-    .pub::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;
-      transition:opacity .35s;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(79,144,230,0.13),transparent 62%);}
-    .pub:hover{border-color:var(--line-2);transform:translateY(-3px);box-shadow:0 18px 50px rgba(0,0,0,0.32);}
+    .pub{position:relative;display:flex;gap:2rem;align-items:stretch;background:#fff;
+      border:1px solid var(--line);border-radius:20px;padding:1.6rem;margin-bottom:1.3rem;
+      transition:transform .28s,box-shadow .28s,border-color .28s;overflow:hidden;}
+    .pub::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s;
+      background:radial-gradient(440px circle at var(--mx,50%) var(--my,50%),rgba(1,33,105,0.05),transparent 60%);}
+    .pub:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:transparent;}
     .pub:hover::after{opacity:1;}
-    .pub-fig{flex:0 0 42%;border-radius:6px;overflow:hidden;cursor:zoom-in;background:var(--paper);
+    .pub-fig{flex:0 0 40%;border-radius:14px;overflow:hidden;cursor:zoom-in;background:var(--bg-soft);
       position:relative;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);z-index:1;}
-    .pub-fig img{display:block;width:100%;height:auto;transition:transform .4s ease;}
-    .pub-fig:hover img{transform:scale(1.04);}
-    .pub-fig::after{content:"⤢";position:absolute;top:8px;right:10px;font-size:0.85rem;color:var(--navy);opacity:0;transition:opacity .2s;}
-    .pub-fig:hover::after{opacity:0.55;}
-    .pub-info{flex:1 1 0;min-width:0;display:flex;flex-direction:column;position:relative;z-index:1;}
-    .venue{display:inline-flex;align-items:center;gap:0.4rem;align-self:flex-start;
-      font-family:'IBM Plex Mono',monospace;font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;
-      padding:0.25rem 0.6rem;border-radius:3px;margin-bottom:0.7rem;}
-    .venue.conf{color:var(--blue);border:1px solid var(--blue-soft);background:rgba(79,144,230,0.05);}
-    .venue.journal{color:var(--gold);border:1px solid rgba(241,184,45,0.4);background:rgba(241,184,45,0.05);}
-    .pub-title{font-family:'Fraunces',serif;font-weight:500;font-size:1.16rem;line-height:1.32;color:var(--tx);margin-bottom:0.55rem;}
-    .pub-authors{font-size:0.84rem;color:var(--tx-2);margin-bottom:0.35rem;line-height:1.55;}
-    .pub-authors strong{color:var(--blue);font-weight:600;}
-    .pub-meta{font-family:'IBM Plex Mono',monospace;font-size:0.74rem;color:var(--tx-3);margin-bottom:1rem;}
-    .pub-links{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:auto;}
-    .lnk{display:inline-flex;align-items:center;gap:0.35rem;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;
-      padding:0.33rem 0.75rem;border-radius:3px;border:1px solid var(--line-2);color:var(--tx-2);
-      text-decoration:none;background:transparent;cursor:pointer;transition:all .2s;}
-    .lnk:hover{border-color:var(--blue);color:var(--blue);background:rgba(79,144,230,0.06);}
+    .pub-fig img{display:block;width:100%;height:auto;transition:transform .45s ease;}
+    .pub-fig:hover img{transform:scale(1.045);}
+    .pub-info{flex:1 1 0;min-width:0;display:flex;flex-direction:column;position:relative;z-index:1;padding:0.4rem 0;}
+    .venue{display:inline-flex;align-self:flex-start;font-size:0.72rem;font-weight:600;letter-spacing:0.06em;
+      text-transform:uppercase;padding:0.32rem 0.7rem;border-radius:100px;margin-bottom:0.9rem;}
+    .venue.conf{color:var(--royal);background:rgba(0,83,155,0.08);}
+    .venue.journal{color:var(--gold);background:rgba(168,120,10,0.1);}
+    .pub-title{font-family:'Inter Tight',sans-serif;font-weight:600;font-size:1.3rem;line-height:1.28;
+      letter-spacing:-0.02em;color:var(--ink);margin-bottom:0.7rem;}
+    .pub-authors{font-size:0.92rem;color:var(--muted);margin-bottom:0.35rem;line-height:1.55;}
+    .pub-authors strong{color:var(--navy);font-weight:700;}
+    .pub-meta{font-size:0.86rem;color:var(--muted-2);margin-bottom:1.2rem;}
+    .pub-links{display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:auto;}
+    .lnk{display:inline-flex;align-items:center;gap:0.35rem;font-size:0.85rem;font-weight:500;
+      padding:0.45rem 0.95rem;border-radius:100px;border:1.5px solid var(--line-2);color:var(--ink);
+      text-decoration:none;background:#fff;cursor:pointer;transition:all .2s;}
+    .lnk:hover{border-color:var(--navy);color:var(--navy);background:var(--bg-soft);}
     .lnk.copied{border-color:var(--gold);color:var(--gold);}
 
-    .lightbox{display:none;position:fixed;inset:0;z-index:999;background:rgba(3,7,18,0.92);
-      backdrop-filter:blur(6px);align-items:center;justify-content:center;cursor:zoom-out;padding:3vw;}
+    .lightbox{display:none;position:fixed;inset:0;z-index:999;background:rgba(11,26,51,0.78);
+      backdrop-filter:blur(8px);align-items:center;justify-content:center;cursor:zoom-out;padding:3vw;}
     .lightbox.open{display:flex;}
-    .lightbox img{max-width:90vw;max-height:90vh;border-radius:8px;box-shadow:0 30px 90px rgba(0,0,0,0.6);background:#fff;}
+    .lightbox img{max-width:90vw;max-height:90vh;border-radius:14px;box-shadow:0 40px 100px rgba(0,0,0,0.4);background:#fff;}
 
     /* ─── NEWS ─── */
-    .timeline{position:relative;padding-left:1.6rem;}
-    .timeline::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1px;
-      background:linear-gradient(var(--blue-soft),var(--line) 40%,var(--line));}
-    .news{position:relative;display:grid;grid-template-columns:108px 1fr;gap:1.3rem;padding:0.85rem 0;align-items:start;}
-    .news::before{content:"";position:absolute;left:-1.6rem;top:1.15rem;width:11px;height:11px;border-radius:50%;
-      background:var(--bg);border:2px solid var(--blue-soft);transition:transform .2s;}
-    .news:hover::before{transform:scale(1.25);border-color:var(--blue);}
-    .news.live::before{background:var(--gold);border-color:var(--gold);box-shadow:0 0 12px rgba(241,184,45,0.7);}
-    .news-date{font-family:'IBM Plex Mono',monospace;font-size:0.74rem;color:var(--tx-3);letter-spacing:0.04em;padding-top:0.18rem;}
-    .news-body{font-size:0.92rem;color:var(--tx-2);line-height:1.6;}
-    .news-body strong{color:var(--tx);font-weight:600;}
-    .news-body em{color:var(--tx);font-style:italic;}
-    .tag{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;
-      padding:0.12rem 0.45rem;border-radius:2px;margin-right:0.5rem;vertical-align:middle;}
-    .tag.new{background:var(--gold);color:var(--navy);font-weight:600;}
-    .tag.conf{border:1px solid var(--blue-soft);color:var(--blue);}
-    .tag.journal{border:1px solid rgba(241,184,45,0.4);color:var(--gold);}
+    .timeline{position:relative;padding-left:1.8rem;max-width:900px;}
+    .timeline::before{content:"";position:absolute;left:5px;top:8px;bottom:8px;width:2px;
+      background:linear-gradient(var(--royal),var(--line) 45%,var(--line));border-radius:2px;}
+    .news{position:relative;display:grid;grid-template-columns:108px 1fr;gap:1.6rem;padding:1.1rem 0;align-items:start;}
+    .news::before{content:"";position:absolute;left:-1.8rem;top:1.4rem;width:12px;height:12px;border-radius:50%;
+      background:#fff;border:2.5px solid var(--royal);transition:transform .2s;}
+    .news:hover::before{transform:scale(1.3);}
+    .news.live::before{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 5px rgba(168,120,10,0.15);}
+    .news-date{font-size:0.82rem;font-weight:600;color:var(--muted-2);letter-spacing:0.02em;padding-top:0.2rem;}
+    .news-body{font-size:1rem;color:var(--muted);line-height:1.6;}
+    .news-body strong{color:var(--ink);font-weight:600;}
+    .news-body em{color:var(--ink);font-style:normal;font-weight:500;}
+    .tag{font-size:0.66rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;
+      padding:0.16rem 0.5rem;border-radius:100px;margin-right:0.5rem;vertical-align:middle;}
+    .tag.new{background:var(--gold);color:#fff;}
+    .tag.conf{background:rgba(0,83,155,0.1);color:var(--royal);}
+    .tag.journal{background:rgba(168,120,10,0.12);color:var(--gold);}
 
     /* ─── AWARDS ─── */
-    .awards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1rem;}
-    .award{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:8px;
-      padding:1.3rem 1.3rem 1.3rem 1.5rem;overflow:hidden;transition:border-color .25s,transform .25s,box-shadow .25s;}
-    .award::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--blue-soft);transition:all .25s;z-index:2;}
+    .awards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.3rem;}
+    .award{position:relative;background:#fff;border:1px solid var(--line);border-radius:18px;padding:1.7rem;
+      overflow:hidden;transition:transform .28s,box-shadow .28s,border-color .28s;}
     .award::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s;
-      background:radial-gradient(300px circle at var(--mx,50%) var(--my,50%),rgba(79,144,230,0.12),transparent 60%);}
-    .award:hover{border-color:var(--line-2);transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,0.3);}
-    .award:hover::before{background:var(--blue);box-shadow:0 0 14px var(--blue);}
+      background:radial-gradient(320px circle at var(--mx,50%) var(--my,50%),rgba(1,33,105,0.05),transparent 60%);}
+    .award:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:transparent;}
     .award:hover::after{opacity:1;}
     .award>*{position:relative;z-index:1;}
-    .award-icon{margin-bottom:0.8rem;color:var(--blue);}
-    .award-title{font-weight:600;font-size:0.92rem;color:var(--tx);line-height:1.35;margin-bottom:0.35rem;}
-    .award-inst{font-size:0.82rem;color:var(--tx-2);margin-bottom:0.15rem;}
-    .award-year{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--tx-3);}
+    .award-icon{width:48px;height:48px;border-radius:12px;background:var(--bg-soft);display:flex;
+      align-items:center;justify-content:center;color:var(--navy);margin-bottom:1.1rem;transition:all .25s;}
+    .award:hover .award-icon{background:var(--navy);color:#fff;}
+    .award-title{font-family:'Inter Tight',sans-serif;font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.32;margin-bottom:0.4rem;}
+    .award-inst{font-size:0.9rem;color:var(--royal);font-weight:500;margin-bottom:0.15rem;}
+    .award-year{font-size:0.84rem;color:var(--muted-2);}
 
-    /* ─── CONTACT ─── */
-    .contact-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:start;}
-    .contact-text{font-size:1.05rem;line-height:1.7;color:var(--tx-2);max-width:440px;}
-    .contact-text .lead{font-family:'Fraunces',serif;font-size:1.5rem;color:var(--tx);line-height:1.25;margin-bottom:1rem;display:block;}
-    .contact-links{display:flex;flex-direction:column;gap:0.7rem;}
-    .contact-link{position:relative;display:flex;align-items:center;gap:1rem;padding:0.95rem 1.2rem;
-      background:var(--panel);border:1px solid var(--line);border-radius:6px;text-decoration:none;color:var(--tx);
-      font-size:0.9rem;transition:all .22s;overflow:hidden;}
-    .contact-link::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .35s;
-      background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(79,144,230,0.14),transparent 60%);}
-    .contact-link:hover{border-color:var(--blue);transform:translateX(4px);}
-    .contact-link:hover::after{opacity:1;}
-    .contact-link>*{position:relative;z-index:1;}
-    .contact-link .ci{width:38px;height:38px;border-radius:7px;background:var(--panel-2);display:flex;
-      align-items:center;justify-content:center;color:var(--blue);flex-shrink:0;border:1px solid var(--line);}
-    .contact-link .meta{display:flex;flex-direction:column;}
-    .contact-link .meta .k{font-family:'IBM Plex Mono',monospace;font-size:0.64rem;letter-spacing:0.12em;
-      text-transform:uppercase;color:var(--tx-3);}
+    /* ─── CONTACT (dark closing) ─── */
+    .contact{background:var(--navy);color:#fff;padding:8rem 0;}
+    .contact .sec-eye{color:#7FB0FF;}
+    .contact-head{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:clamp(2.4rem,5.5vw,4rem);
+      letter-spacing:-0.03em;line-height:1.02;margin-bottom:1.2rem;max-width:16ch;}
+    .contact-sub{font-size:1.1rem;color:rgba(255,255,255,0.72);max-width:46ch;margin-bottom:3rem;line-height:1.6;}
+    .contact-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;max-width:820px;}
+    .clink{position:relative;display:flex;align-items:center;gap:1rem;padding:1.2rem 1.4rem;
+      background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:16px;
+      text-decoration:none;color:#fff;transition:all .22s;overflow:hidden;}
+    .clink:hover{background:rgba(255,255,255,0.12);transform:translateY(-3px);border-color:rgba(255,255,255,0.3);}
+    .clink .ci{width:42px;height:42px;border-radius:11px;background:rgba(255,255,255,0.1);display:flex;
+      align-items:center;justify-content:center;color:#9FC4FF;flex-shrink:0;}
+    .clink .meta{display:flex;flex-direction:column;min-width:0;}
+    .clink .k{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.55);font-weight:600;}
+    .clink .v{font-size:0.95rem;font-weight:500;overflow:hidden;text-overflow:ellipsis;}
 
-    footer{border-top:1px solid var(--line);padding:2.6rem 0;text-align:center;display:flex;
-      flex-direction:column;align-items:center;gap:0.9rem;
-      font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--tx-3);letter-spacing:0.06em;}
-    footer .crest{width:34px;height:34px;}
+    footer{background:var(--navy);color:rgba(255,255,255,0.6);padding:2.5rem 0 3rem;text-align:center;
+      border-top:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;align-items:center;gap:1rem;
+      font-size:0.85rem;letter-spacing:0.02em;}
+    footer .crest{width:42px;height:42px;object-fit:contain;
+      background:#fff;border-radius:50%;padding:5px;}
 
-    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease;}
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease;}
     .reveal.in{opacity:1;transform:none;}
     @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
 
-    @media (max-width:860px){.nav-links{gap:1.1rem;}.nav-links li:not(:last-child){display:none;}
-      .contact-grid{grid-template-columns:1fr;gap:1.8rem;}}
+    /* ─── RESPONSIVE ─── */
+    @media (max-width:920px){
+      .hero-grid{grid-template-columns:1fr;gap:3rem;}
+      .hero-photo-wrap{order:-1;}
+      .hero-photo{width:clamp(200px,46vw,280px);}
+      .research-grid{grid-template-columns:1fr;gap:3rem;}
+      .sphere-block{order:-1;}
+      #sphere{max-width:340px;}
+    }
+    @media (max-width:760px){
+      .nav-links li:not(.cv-li){display:none;}
+      .research-top{flex-direction:column;align-items:flex-start;gap:0.6rem;}
+    }
     @media (max-width:680px){
-      html{font-size:16px;}.wrap,.hero-grid{padding:0 1.4rem;}nav{padding:0 1.4rem;}
-      #sphere{opacity:0.45;}
-      .hero::after{background:linear-gradient(180deg,rgba(5,14,34,0.55),var(--bg) 70%);}
-      .pub{flex-direction:column;}.pub-fig{flex:0 0 auto;width:100%;}
-      .news{grid-template-columns:1fr;gap:0.3rem;}.news-date{padding-top:0;}.block{padding:4rem 0;}}
+      html{font-size:16px;}.wrap{padding:0 1.5rem;}nav{padding:0 1.5rem;}
+      .sec{padding:5rem 0;}.contact{padding:5rem 0;}
+      .pub{flex-direction:column;gap:1.2rem;}.pub-fig{flex:0 0 auto;width:100%;}
+      .news{grid-template-columns:1fr;gap:0.4rem;}.news-date{padding-top:0;}
+    }
   </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
-  <div class="brand"><img src="./assets/crest.png" alt="Duke crest" class="crest">XINGE GUO</div>
+<nav id="nav">
+  <div class="brand"><img src="./assets/crest.png" alt="Duke crest" class="crest">Xinge Guo</div>
   <ul class="nav-links">
+    <li><a href="#research">Research</a></li>
     <li><a href="#publications">Publications</a></li>
     <li><a href="#news">News</a></li>
     <li><a href="#awards">Awards</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="https://guo777777.github.io/CV-Xinge%20Guo%20updated.pdf" target="_blank" class="nav-cv">CV ↗</a></li>
+    <li class="cv-li"><a href="https://guo777777.github.io/CV-Xinge%20Guo%20updated.pdf" target="_blank" class="nav-cv">CV ↗</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
-<header class="hero" id="bio">
-  <canvas id="sphere"></canvas>
-  <div class="hero-inner">
-    <div class="hero-grid">
-      <div class="hero-id">
-        <img src="./assets/profile.png" alt="Xinge Guo" class="avatar">
-        <div>
-          <span class="eyebrow">Duke BME · VIP Lab</span>
-          <span class="loc">Durham, North Carolina</span>
-        </div>
-      </div>
-      <h1>Xinge <span class="accent">Guo</span></h1>
-      <div class="hero-role">M.S. in Biomedical Engineering</div>
-      <div class="hero-inst">Vision &amp; Image Processing Lab · advised by
-        <a href="https://people.duke.edu/~sf59/" target="_blank">Prof. Sina Farsiu</a></div>
-      <p class="hero-bio">
-        I work at the intersection of <strong>biomedical image analysis</strong>,
-        <strong>computer vision</strong>, and <strong>multimodal large language models</strong>,
-        with a focus on <strong>image quality assessment</strong> and using vision-language priors
-        to make medical imaging systems more robust and generalizable.
-        Before Duke I earned my B.E. (Class of Excellence) from Shenzhen University,
-        building deep models for echocardiogram landmark detection, CBCT orthodontic analysis,
-        and semi-supervised tooth segmentation.
-      </p>
-      <div class="focus-chips">
-        <span class="chip">Biomedical Image Analysis</span>
-        <span class="chip">Computer Vision</span>
-        <span class="chip">MLLM / VLM</span>
-        <span class="chip">Image Quality Assessment</span>
-      </div>
-      <div class="hero-links">
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <span class="eyebrow hero-eye">Duke University · Biomedical Engineering</span>
+      <h1 class="hero-name">Xinge <span class="last">Guo</span></h1>
+      <div class="hero-role">M.S. in Biomedical Engineering, Vision &amp; Image Processing Lab,
+        advised by <a href="https://people.duke.edu/~sf59/" target="_blank">Prof. Sina Farsiu</a></div>
+      <p class="hero-lead">Making medical imaging systems <span class="hl">robust in the real world</span>
+        with image quality priors and vision-language models.</p>
+      <div class="hero-cta">
         <a href="mailto:xinge.guo@duke.edu" class="btn btn-primary">Email me</a>
-        <a href="#publications" class="btn btn-ghost">Publications</a>
+        <a href="https://guo777777.github.io/CV-Xinge%20Guo%20updated.pdf" target="_blank" class="btn btn-ghost">CV / Résumé</a>
         <a href="https://scholar.google.com/citations?user=O4VUUiwAAAAJ&hl=zh-CN" target="_blank" class="btn btn-ghost">Google Scholar ↗</a>
       </div>
     </div>
+    <div class="hero-photo-wrap">
+      <span class="hero-photo-ring"></span>
+      <img src="./assets/profile.png" alt="Xinge Guo" class="hero-photo">
+      <div class="hero-badge">
+        <img src="./assets/crest.png" alt="" class="crest">
+        <div class="bt">Duke BME<small>VIP Lab · Durham, NC</small></div>
+      </div>
+    </div>
   </div>
-  <div class="scroll-cue"><span>scroll</span><span class="bar"></span></div>
 </header>
 
+<!-- RESEARCH -->
+<section class="sec soft" id="research">
+  <div class="wrap">
+    <div class="research-top reveal">
+      <div>
+        <span class="eyebrow sec-eye">Research</span>
+        <h2 class="sec-title">What I work on</h2>
+      </div>
+      <p class="research-lead">My work sits at the intersection of medical imaging, computer vision,
+        and multimodal language models, with image quality at the center.</p>
+    </div>
+
+    <div class="research-grid">
+      <div class="focus-list reveal">
+        <div class="focus-item">
+          <div class="focus-name">Biomedical Image Analysis</div>
+          <div class="focus-desc">Segmentation, landmark detection, and quantitative measurement across CT, CBCT, X-ray, and echocardiography.</div>
+        </div>
+        <div class="focus-item">
+          <div class="focus-name">Computer Vision</div>
+          <div class="focus-desc">Low-level vision and image restoration, plus segmentation-difficulty estimation.</div>
+        </div>
+        <div class="focus-item">
+          <div class="focus-name">Multimodal LLMs · VLM / MLLM</div>
+          <div class="focus-desc">Vision-language models as priors and evaluators for medical imaging tasks.</div>
+        </div>
+        <div class="focus-item">
+          <div class="focus-name">Image Quality Assessment</div>
+          <div class="focus-desc">Quality-aware restoration and model design guided by perceptual priors.</div>
+        </div>
+      </div>
+
+      <div class="sphere-block reveal">
+        <canvas id="sphere"></canvas>
+        <p class="sphere-cap"><b>Hyperspherical feature geometry</b>, a current research direction:
+          representing visual attributes as directions on a unit sphere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PUBLICATIONS -->
-<section id="publications">
-  <div class="wrap block">
-    <div class="sec-head reveal">
-      <span class="eyebrow">/ selected work</span>
+<section class="sec" id="publications">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:3.5rem;">
+      <span class="eyebrow sec-eye">Selected work</span>
       <h2 class="sec-title">Publications</h2>
-      <span class="sec-rule"></span>
     </div>
 
     <article class="pub reveal spot">
@@ -371,12 +409,11 @@
 <div id="lb2" class="lightbox" onclick="this.classList.remove('open')"><img src="./assets/2.png" alt=""></div>
 
 <!-- NEWS -->
-<section id="news">
-  <div class="wrap block">
-    <div class="sec-head reveal">
-      <span class="eyebrow">/ log</span>
+<section class="sec soft" id="news">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:3.5rem;">
+      <span class="eyebrow sec-eye">Log</span>
       <h2 class="sec-title">News</h2>
-      <span class="sec-rule"></span>
     </div>
     <div class="timeline reveal">
       <div class="news live"><div class="news-date">Mar 2026</div>
@@ -393,46 +430,45 @@
       <div class="news"><div class="news-date">Sep 2024</div>
         <div class="news-body"><span class="tag journal">Journal</span>Paper published in <strong>BMC Oral Health</strong>: CBCT landmark detection for measuring basal bone width.</div></div>
       <div class="news"><div class="news-date">Jul 2024</div>
-        <div class="news-body">Completed a research internship at the <strong>Department of Radiology and Nuclear Medicine, Erasmus University Medical Center</strong> (Rotterdam, Netherlands) — GWAS on AI-based phenotypes derived from structural brain MRI (UKBB cohort).</div></div>
+        <div class="news-body">Completed a research internship at the <strong>Department of Radiology and Nuclear Medicine, Erasmus University Medical Center</strong> (Rotterdam, Netherlands): GWAS on AI-based phenotypes derived from structural brain MRI (UKBB cohort).</div></div>
     </div>
   </div>
 </section>
 
 <!-- AWARDS -->
-<section id="awards">
-  <div class="wrap block">
-    <div class="sec-head reveal">
-      <span class="eyebrow">/ recognition</span>
+<section class="sec" id="awards">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:3.5rem;">
+      <span class="eyebrow sec-eye">Recognition</span>
       <h2 class="sec-title">Honors &amp; Awards</h2>
-      <span class="sec-rule"></span>
     </div>
     <div class="awards">
       <div class="award reveal spot">
-        <div class="award-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="9" r="6"/><path d="M9 14.5 7 22l5-3 5 3-2-7.5"/></svg></div>
+        <div class="award-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="9" r="6"/><path d="M9 14.5 7 22l5-3 5 3-2-7.5"/></svg></div>
         <div class="award-title">Research Fellowship for BME MS/MEng Students</div>
         <div class="award-inst">Duke University</div>
         <div class="award-year">Fall 2025 &amp; Spring 2026</div>
       </div>
       <div class="award reveal spot">
-        <div class="award-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg></div>
+        <div class="award-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg></div>
         <div class="award-title">Merit-based Scholarship</div>
         <div class="award-inst">Duke University</div>
         <div class="award-year">Fall 2025</div>
       </div>
       <div class="award reveal spot">
-        <div class="award-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.5 6.5L21 9l-5 4 1.8 7L12 16l-5.8 4L8 13 3 9l6.5-.5z"/></svg></div>
+        <div class="award-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l2.5 6.5L21 9l-5 4 1.8 7L12 16l-5.8 4L8 13 3 9l6.5-.5z"/></svg></div>
         <div class="award-title">Top Innovative Talent Scholarship</div>
         <div class="award-inst">Shenzhen University</div>
         <div class="award-year">2022, 2023, 2024 (3 consecutive years)</div>
       </div>
       <div class="award reveal spot">
-        <div class="award-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="9" r="6"/><path d="M9 14.5 7 22l5-3 5 3-2-7.5"/></svg></div>
-        <div class="award-title">Full Scholarship — Class of Excellence</div>
+        <div class="award-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="9" r="6"/><path d="M9 14.5 7 22l5-3 5 3-2-7.5"/></svg></div>
+        <div class="award-title">Full Scholarship, Class of Excellence</div>
         <div class="award-inst">Shenzhen University</div>
         <div class="award-year">2021</div>
       </div>
       <div class="award reveal spot">
-        <div class="award-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+        <div class="award-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
         <div class="award-title">Associate Diploma in Piano Performance</div>
         <div class="award-inst">London College of Music (Univ. of West London)</div>
         <div class="award-year">April 2022</div>
@@ -442,30 +478,25 @@
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
-  <div class="wrap block">
-    <div class="sec-head reveal">
-      <span class="eyebrow">/ get in touch</span>
-      <h2 class="sec-title">Contact</h2>
-      <span class="sec-rule"></span>
-    </div>
-    <div class="contact-grid reveal">
-      <div class="contact-text">
-        <span class="lead">Open to research collaborations and conversations.</span>
-        Medical image analysis, computer vision, machine learning — if any of it overlaps with your work, reach out.
-      </div>
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow sec-eye">Get in touch</span>
+      <h2 class="contact-head">Let's talk research.</h2>
+      <p class="contact-sub">Open to collaborations and conversations across medical image analysis,
+        computer vision, and machine learning. If any of it overlaps with your work, reach out.</p>
       <div class="contact-links">
-        <a href="mailto:xinge.guo@duke.edu" class="contact-link spot">
-          <span class="ci"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
-          <span class="meta"><span class="k">Email</span>xinge.guo@duke.edu</span>
+        <a href="mailto:xinge.guo@duke.edu" class="clink">
+          <span class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+          <span class="meta"><span class="k">Email</span><span class="v">xinge.guo@duke.edu</span></span>
         </a>
-        <a href="tel:+19863409689" class="contact-link spot">
-          <span class="ci"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.39 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
-          <span class="meta"><span class="k">Phone</span>+1 986 340 9689</span>
+        <a href="tel:+19863409689" class="clink">
+          <span class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.39 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <span class="meta"><span class="k">Phone</span><span class="v">+1 986 340 9689</span></span>
         </a>
-        <a href="https://scholar.google.com/citations?user=O4VUUiwAAAAJ&hl=zh-CN" target="_blank" class="contact-link spot">
-          <span class="ci"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
-          <span class="meta"><span class="k">Profile</span>Google Scholar</span>
+        <a href="https://scholar.google.com/citations?user=O4VUUiwAAAAJ&hl=zh-CN" target="_blank" class="clink">
+          <span class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
+          <span class="meta"><span class="k">Profile</span><span class="v">Google Scholar</span></span>
         </a>
       </div>
     </div>
@@ -485,83 +516,59 @@
     setTimeout(function(){btn.innerHTML=orig;btn.classList.remove('copied');},1800);
   }
 
-  /* scroll reveal */
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-  },{threshold:0.12});
+  /* nav shadow on scroll */
+  var navEl=document.getElementById('nav');
+  function onScroll(){ navEl.classList.toggle('scrolled', window.scrollY>20); }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  /* reveal */
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 
-  /* cursor spotlight on cards */
+  /* cursor spotlight */
   document.querySelectorAll('.spot').forEach(function(card){
-    card.addEventListener('pointermove',function(e){
-      var r=card.getBoundingClientRect();
-      card.style.setProperty('--mx',(e.clientX-r.left)+'px');
-      card.style.setProperty('--my',(e.clientY-r.top)+'px');
-    });
+    card.addEventListener('pointermove',function(e){var r=card.getBoundingClientRect();
+      card.style.setProperty('--mx',(e.clientX-r.left)+'px');card.style.setProperty('--my',(e.clientY-r.top)+'px');});
   });
 
-  /* nav scrollspy */
-  var secs=document.querySelectorAll('section[id]');
+  /* scrollspy */
   var navmap={};
   document.querySelectorAll('.nav-links a[href^="#"]').forEach(function(a){navmap[a.getAttribute('href').slice(1)]=a;});
-  var spy=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){
-        Object.values(navmap).forEach(function(a){a.classList.remove('active');});
-        if(navmap[e.target.id]) navmap[e.target.id].classList.add('active');
-      }
-    });
-  },{rootMargin:'-45% 0px -50% 0px'});
-  secs.forEach(function(s){spy.observe(s);});
+  var spy=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
+    Object.values(navmap).forEach(function(a){a.classList.remove('active');});
+    if(navmap[e.target.id])navmap[e.target.id].classList.add('active');}});},{rootMargin:'-45% 0px -50% 0px'});
+  document.querySelectorAll('section[id]').forEach(function(s){spy.observe(s);});
 
-  /* hyperspherical feature field — mouse-reactive */
+  /* hyperspherical feature field, light theme, mouse-reactive */
   (function(){
     var canvas=document.getElementById('sphere'), ctx=canvas.getContext('2d');
     var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
     var dpr=Math.min(window.devicePixelRatio||1,2);
     var W,H,cx,cy,R;
-    function resize(){
-      W=canvas.clientWidth;H=canvas.clientHeight;
-      canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
-      R=Math.min(W,H)*0.42;cx=W*0.70;cy=H*0.50;
-    }
+    function resize(){W=canvas.clientWidth;H=canvas.clientHeight;canvas.width=W*dpr;canvas.height=H*dpr;
+      ctx.setTransform(dpr,0,0,dpr,0,0);R=Math.min(W,H)*0.40;cx=W*0.5;cy=H*0.5;}
     window.addEventListener('resize',resize);
-
-    var N=420, pts=[], ga=Math.PI*(3-Math.sqrt(5));
+    var N=460, pts=[], ga=Math.PI*(3-Math.sqrt(5));
     for(var i=0;i<N;i++){var y=1-(i/(N-1))*2,r=Math.sqrt(1-y*y),t=i*ga;pts.push([Math.cos(t)*r,y,Math.sin(t)*r]);}
     var axes=[[1,0,0],[-1,0,0],[0,1,0],[0,-1,0],[0,0,1],[0,0,-1]];
     function rotY(p,a){var c=Math.cos(a),s=Math.sin(a);return [c*p[0]+s*p[2],p[1],-s*p[0]+c*p[2]];}
     function rotX(p,a){var c=Math.cos(a),s=Math.sin(a);return [p[0],c*p[1]-s*p[2],s*p[1]+c*p[2]];}
-
     var ang=0, tgX=0,tgY=0, mX=0,mY=0;
-    if(!reduce){
-      window.addEventListener('pointermove',function(e){
-        tgX=(e.clientX/window.innerWidth-0.5);
-        tgY=(e.clientY/window.innerHeight-0.5);
-      });
-    }
+    if(!reduce){window.addEventListener('pointermove',function(e){
+      tgX=(e.clientX/window.innerWidth-0.5);tgY=(e.clientY/window.innerHeight-0.5);});}
     function frame(){
-      mX+=(tgX-mX)*0.05; mY+=(tgY-mY)*0.05;
+      mX+=(tgX-mX)*0.05;mY+=(tgY-mY)*0.05;
       ctx.clearRect(0,0,W,H);
-      var spin=reduce?0:ang;
-      var ay=spin + mX*0.9;
-      var tilt=-0.42 + mY*0.5;
-      for(var i=0;i<N;i++){
-        var p=rotX(rotY(pts[i],ay),tilt);
-        var depth=(p[2]+1)/2, x=cx+p[0]*R, y=cy-p[1]*R;
-        ctx.beginPath();ctx.arc(x,y,0.5+depth*1.7,0,6.283);
-        ctx.fillStyle='rgba('+(120+depth*60|0)+','+(160+depth*50|0)+','+(230+depth*20|0)+','+(0.06+depth*0.5)+')';
-        ctx.fill();
-      }
-      for(var k=0;k<axes.length;k++){
-        var p=rotX(rotY(axes[k],ay),tilt);
-        var depth=(p[2]+1)/2, x=cx+p[0]*R, y=cy-p[1]*R;
+      var ay=(reduce?0.5:ang)+mX*0.9, tilt=-0.35+mY*0.5;
+      for(var i=0;i<N;i++){var p=rotX(rotY(pts[i],ay),tilt);var depth=(p[2]+1)/2,x=cx+p[0]*R,y=cy-p[1]*R;
+        ctx.beginPath();ctx.arc(x,y,0.6+depth*1.9,0,6.283);
+        ctx.fillStyle='rgba('+(1+(1-depth)*30|0)+','+(33+(1-depth)*40|0)+','+(105+(1-depth)*60|0)+','+(0.10+depth*0.45)+')';ctx.fill();}
+      for(var k=0;k<axes.length;k++){var p=rotX(rotY(axes[k],ay),tilt);var depth=(p[2]+1)/2,x=cx+p[0]*R,y=cy-p[1]*R;
         ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(x,y);
-        ctx.strokeStyle='rgba(79,144,230,'+(0.04+depth*0.18)+')';ctx.lineWidth=1;ctx.stroke();
-        ctx.beginPath();ctx.arc(x,y,2+depth*2.5,0,6.283);
-        ctx.fillStyle='rgba(79,144,230,'+(0.25+depth*0.6)+')';ctx.fill();
-      }
-      if(!reduce)ang+=0.0014;
+        ctx.strokeStyle='rgba(31,95,204,'+(0.06+depth*0.22)+')';ctx.lineWidth=1.2;ctx.stroke();
+        ctx.beginPath();ctx.arc(x,y,2.5+depth*3,0,6.283);
+        ctx.fillStyle='rgba(31,95,204,'+(0.35+depth*0.55)+')';ctx.fill();}
+      if(!reduce)ang+=0.0016;
       requestAnimationFrame(frame);
     }
     resize();frame();
