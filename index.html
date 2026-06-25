@@ -147,6 +147,7 @@
       text-transform:uppercase;padding:0.32rem 0.7rem;border-radius:100px;margin-bottom:0.9rem;}
     .venue.conf{color:var(--royal);background:rgba(0,83,155,0.08);}
     .venue.journal{color:var(--gold);background:rgba(168,120,10,0.1);}
+    .venue.preprint{color:var(--blue);background:rgba(31,95,204,0.09);}
     .pub-title{font-family:'Inter Tight',sans-serif;font-weight:600;font-size:1.3rem;line-height:1.28;
       letter-spacing:-0.02em;color:var(--ink);margin-bottom:0.7rem;}
     .pub-authors{font-size:0.92rem;color:var(--muted);margin-bottom:0.35rem;line-height:1.55;}
@@ -338,6 +339,29 @@
     </div>
 
     <article class="pub reveal spot">
+      <div class="pub-fig" onclick="document.getElementById('lb1').classList.add('open')">
+        <img src="./assets/1.png" alt="Vision-language models for low-level vision — survey timeline figure">
+      </div>
+      <div class="pub-info">
+        <span class="venue preprint">Preprint · Under Review</span>
+        <h3 class="pub-title">Toward Multimodal Understanding in Low-Level Vision: The Rise of Vision-Language Models</h3>
+        <div class="pub-authors">C. He, D. Zhang, F. Xiao, <strong>X. Guo</strong>, J. Feng, Y. Wang, S. Farsiu</div>
+        <div class="pub-meta">Under review at IEEE Trans. Pattern Analysis and Machine Intelligence (TPAMI) · Preprints, 2026</div>
+        <div class="pub-links">
+          <a href="https://www.preprints.org/manuscript/202606.1854" class="lnk" target="_blank">↗ Paper</a>
+          <button class="lnk bib-btn" onclick="copyBib(this, `@article{he2026toward,
+  title={Toward Multimodal Understanding in Low-Level Vision: The Rise of Vision-Language Models},
+  author={He, Chunming and Zhang, Dingming and Xiao, Fengyang and Guo, Xinge and Feng, Jingjia and Wang, Yiqing and Farsiu, Sina},
+  journal={Preprints},
+  year={2026},
+  note={Under review at IEEE TPAMI},
+  doi={10.20944/preprints202606.1854.v1}
+}`)">⧉ BibTeX</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="pub reveal spot">
       <div class="pub-fig" onclick="document.getElementById('lb0').classList.add('open')">
         <img src="./assets/3.png" alt="IQPIR publication figure">
       </div>
@@ -354,29 +378,6 @@
   author={Xiao, Fengyang and Hu, Peng and Xu, Lei and Guo, XingE and Qin, Guanyi and Shen, Yuqi and Fang, Chengyu and Zhang, Rihan and He, Chunming and Farsiu, Sina},
   booktitle={IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
   year={2026}
-}`)">⧉ BibTeX</button>
-        </div>
-      </div>
-    </article>
-
-    <article class="pub reveal spot">
-      <div class="pub-fig" onclick="document.getElementById('lb1').classList.add('open')">
-        <img src="./assets/1.png" alt="Tooth segmentation figure">
-      </div>
-      <div class="pub-info">
-        <span class="venue conf">Conference · MICCAI 2024</span>
-        <h3 class="pub-title">Efficient Semi-supervised Tooth Instance Segmentation in Panoramic X-Rays Using ResUnet50 and SAM Networks</h3>
-        <div class="pub-authors"><strong>Xinge Guo</strong>, W. Liu, Z. Cui</div>
-        <div class="pub-meta">MICCAI 2024, pp. 131–145 · Springer Nature Switzerland</div>
-        <div class="pub-links">
-          <a href="https://link.springer.com/chapter/10.1007/978-3-031-88977-6_13" class="lnk" target="_blank">↗ Paper</a>
-          <button class="lnk bib-btn" onclick="copyBib(this, `@inproceedings{guo2024efficient,
-  title={Efficient Semi-supervised Tooth Instance Segmentation in Panoramic X-Rays Using ResUnet50 and SAM Networks},
-  author={Guo, Xinge and Liu, Wenxi and Cui, Zihao},
-  booktitle={International Conference on Medical Image Computing and Computer-Assisted Intervention},
-  pages={131--145},
-  year={2024},
-  organization={Springer}
 }`)">⧉ BibTeX</button>
         </div>
       </div>
@@ -421,8 +422,11 @@
       <h2 class="sec-title">News</h2>
     </div>
     <div class="timeline reveal">
-      <div class="news live"><div class="news-date">Mar 2026</div>
-        <div class="news-body"><span class="tag new">New</span><span class="tag conf">Conf</span>
+      <div class="news live"><div class="news-date">Jun 2026</div>
+        <div class="news-body"><span class="tag new">New</span>
+          Survey submitted to <strong>IEEE TPAMI</strong> (under review): <em>Toward Multimodal Understanding in Low-Level Vision: The Rise of Vision-Language Models</em>.</div></div>
+      <div class="news"><div class="news-date">Mar 2026</div>
+        <div class="news-body"><span class="tag conf">Conf</span>
           Paper accepted at <strong>CVPR 2026</strong>: <em>Beyond Ground-Truth: Leveraging Image Quality Priors for Real-World Image Restoration</em>.</div></div>
       <div class="news"><div class="news-date">Sep 2025</div>
         <div class="news-body">Started a research project on <em>Evaluation of Image Segmentation Difficulty Based on Reinforcement Learning</em> at the VIP Lab, Duke University.</div></div>
@@ -430,8 +434,6 @@
         <div class="news-body">Joined Duke University as an M.S. student in Biomedical Engineering. Awarded the <strong>Research Fellowship for BME MS/MEng Students</strong> (Fall 2025 &amp; Spring 2026) and a <strong>Merit-based Scholarship</strong> (Fall 2025).</div></div>
       <div class="news"><div class="news-date">Jun 2025</div>
         <div class="news-body">Graduated from Shenzhen University with a B.E. in Biomedical Engineering (Class of Excellence).</div></div>
-      <div class="news"><div class="news-date">Oct 2024</div>
-        <div class="news-body"><span class="tag conf">Conf</span>Paper accepted at MICCAI 2024 (STS Challenge): <em>Efficient Semi-supervised Tooth Instance Segmentation in Panoramic X-Rays Using ResUnet50 and SAM Networks</em>.</div></div>
       <div class="news"><div class="news-date">Sep 2024</div>
         <div class="news-body"><span class="tag journal">Journal</span>Paper published in <strong>BMC Oral Health</strong>: CBCT landmark detection for measuring basal bone width.</div></div>
       <div class="news"><div class="news-date">Jul 2024</div>
