@@ -146,7 +146,7 @@
     .lightbox{display:none;position:fixed;inset:0;z-index:999;background:rgba(11,26,51,0.78);
       backdrop-filter:blur(8px);align-items:center;justify-content:center;cursor:zoom-out;padding:3vw;}
     .lightbox.open{display:flex;}
-    .lightbox img{max-width:90vw;max-height:90vh;border-radius:14px;box-shadow:0 40px 100px rgba(0,0,0,0.4);background:#fff;}
+    .lightbox img{width:auto;height:auto;max-width:90vw;max-height:90vh;border-radius:14px;box-shadow:0 40px 100px rgba(0,0,0,0.4);background:#fff;}
 
     /* ─── NEWS ─── */
     .timeline{position:relative;padding-left:1.8rem;max-width:900px;}
@@ -229,7 +229,7 @@
 
 <!-- NAV -->
 <nav id="nav">
-  <div class="brand"><img src="./assets/crest.png" alt="Duke crest" class="crest">Xinge Guo</div>
+  <div class="brand"><img src="./assets/crest.webp" alt="Duke crest" class="crest" width="160" height="209">Xinge Guo</div>
   <ul class="nav-links">
     <li><a href="#research">Research</a></li>
     <li><a href="#publications">Publications</a></li>
@@ -257,9 +257,9 @@
     </div>
     <div class="hero-photo-wrap">
       <span class="hero-photo-ring"></span>
-      <img src="./assets/profile.png" alt="Xinge Guo" class="hero-photo">
+      <img src="./assets/profile.webp" alt="Xinge Guo" class="hero-photo" width="900" height="900">
       <div class="hero-badge">
-        <img src="./assets/crest.png" alt="" class="crest">
+        <img src="./assets/crest.webp" alt="" class="crest" width="160" height="209">
         <div class="bt">Duke BME<small>VIP Lab · Durham, NC</small></div>
       </div>
     </div>
@@ -321,7 +321,7 @@
 
     <article class="pub">
       <div class="pub-fig" onclick="document.getElementById('lb4').classList.add('open')">
-        <img src="./assets/5.png" alt="SphereTrust framework — ranking SAM candidate masks on the hypersphere of frozen DINOv2 features">
+        <img src="./assets/5.webp" alt="SphereTrust framework — ranking SAM candidate masks on the hypersphere of frozen DINOv2 features" width="1400" height="868">
       </div>
       <div class="pub-info">
         <span class="venue preprint">Preprint · arXiv 2026</span>
@@ -342,7 +342,7 @@
 
     <article class="pub">
       <div class="pub-fig" onclick="document.getElementById('lb3').classList.add('open')">
-        <img src="./assets/4.png" alt="ConPro — contrast projection target computed from DSA sequences">
+        <img src="./assets/4.webp" alt="ConPro — contrast projection target computed from DSA sequences" width="1200" height="1186">
       </div>
       <div class="pub-info">
         <span class="venue preprint">Preprint · arXiv 2026</span>
@@ -363,7 +363,7 @@
 
     <article class="pub">
       <div class="pub-fig" onclick="document.getElementById('lb1').classList.add('open')">
-        <img src="./assets/1.png" alt="Vision-language models for low-level vision — survey timeline figure">
+        <img src="./assets/1.webp" alt="Vision-language models for low-level vision — survey timeline figure" width="1400" height="475">
       </div>
       <div class="pub-info">
         <span class="venue preprint">Preprint · Under Review</span>
@@ -386,7 +386,7 @@
 
     <article class="pub">
       <div class="pub-fig" onclick="document.getElementById('lb0').classList.add('open')">
-        <img src="./assets/3.png" alt="IQPIR publication figure">
+        <img src="./assets/3.webp" alt="IQPIR publication figure" width="1400" height="730">
       </div>
       <div class="pub-info">
         <span class="venue conf">Conference · CVPR 2026</span>
@@ -408,7 +408,7 @@
 
     <article class="pub">
       <div class="pub-fig" onclick="document.getElementById('lb2').classList.add('open')">
-        <img src="./assets/2.png" alt="CBCT landmark figure">
+        <img src="./assets/2.webp" alt="CBCT landmark figure" width="1400" height="767">
       </div>
       <div class="pub-info">
         <span class="venue journal">Journal · BMC Oral Health 2024</span>
@@ -433,11 +433,11 @@
   </div>
 </section>
 
-<div id="lb0" class="lightbox" onclick="this.classList.remove('open')"><img src="./assets/3.png" alt=""></div>
-<div id="lb1" class="lightbox" onclick="this.classList.remove('open')"><img src="./assets/1.png" alt=""></div>
-<div id="lb2" class="lightbox" onclick="this.classList.remove('open')"><img src="./assets/2.png" alt=""></div>
-<div id="lb3" class="lightbox" onclick="this.classList.remove('open')"><img src="./assets/4.png" alt=""></div>
-<div id="lb4" class="lightbox" onclick="this.classList.remove('open')"><img src="./assets/5.png" alt=""></div>
+<div id="lb0" class="lightbox" onclick="this.classList.remove('open')"><img src="./assets/3.webp" alt="" width="1400" height="730"></div>
+<div id="lb1" class="lightbox" onclick="this.classList.remove('open')"><img src="./assets/1.webp" alt="" width="1400" height="475"></div>
+<div id="lb2" class="lightbox" onclick="this.classList.remove('open')"><img src="./assets/2.webp" alt="" width="1400" height="767"></div>
+<div id="lb3" class="lightbox" onclick="this.classList.remove('open')"><img src="./assets/4.webp" alt="" width="1200" height="1186"></div>
+<div id="lb4" class="lightbox" onclick="this.classList.remove('open')"><img src="./assets/5.webp" alt="" width="1400" height="868"></div>
 
 <!-- NEWS -->
 <section class="sec soft" id="news">
@@ -538,7 +538,7 @@
 </section>
 
 <footer>
-  <img src="./assets/crest.png" alt="Duke crest" class="crest">
+  <img src="./assets/crest.webp" alt="Duke crest" class="crest" width="160" height="209">
   <span>© 2026 Xinge Guo · Duke University</span>
 </footer>
 
