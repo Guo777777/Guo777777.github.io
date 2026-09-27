@@ -57,38 +57,45 @@
     .nav-links a.nav-cv svg{display:block;flex-shrink:0;}
     .nav-links a.nav-cv:hover{background:var(--navy);color:#fff!important;border-color:var(--navy);}
 
-    /* ─── HERO ─── */
-    .hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 60px;}
-    .hero-grid{display:grid;grid-template-columns:1fr auto;gap:4.5rem;align-items:center;width:100%;}
-
-    .hero-eye{margin-bottom:1.4rem;}
+    /* ─── HERO + RESEARCH ─── */
+    .hero{padding:148px 0 6.5rem;}
+    .hero-grid{display:grid;grid-template-columns:1fr auto;gap:4.5rem;align-items:end;width:100%;}
+    .hero-eye{display:block;margin-bottom:1.4rem;}
     .hero-name{font-family:'Inter Tight',sans-serif;font-weight:700;
-      font-size:clamp(3.6rem,8.5vw,6.6rem);line-height:0.92;letter-spacing:-0.035em;color:var(--ink);margin-bottom:1.3rem;}
+      font-size:clamp(3.4rem,8vw,6.2rem);line-height:0.92;letter-spacing:-0.04em;color:var(--ink);margin-bottom:1.4rem;}
     .hero-name .last{color:var(--navy);}
-    .hero-role{font-size:clamp(1.1rem,2vw,1.35rem);font-weight:500;color:var(--muted);margin-bottom:1.8rem;}
+    .hero-role{font-size:clamp(1.05rem,1.8vw,1.25rem);font-weight:500;color:var(--muted);margin-bottom:1.6rem;max-width:46ch;}
     .hero-role a{color:var(--blue);text-decoration:none;font-weight:600;}
     .hero-role a:hover{text-decoration:underline;}
     .hero-lead{font-family:'Inter Tight',sans-serif;font-weight:500;
-      font-size:clamp(1.35rem,2.6vw,1.95rem);line-height:1.3;letter-spacing:-0.02em;
-      color:var(--ink);max-width:30ch;margin-bottom:2.4rem;}
+      font-size:clamp(1.3rem,2.4vw,1.8rem);line-height:1.32;letter-spacing:-0.02em;
+      color:var(--ink);max-width:32ch;margin-bottom:2.2rem;}
     .hero-lead .hl{color:var(--blue);}
-    .hero-cta{display:flex;gap:0.8rem;flex-wrap:wrap;}
-    .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 1.5rem;border-radius:100px;
-      font-size:0.92rem;font-weight:600;text-decoration:none;cursor:pointer;border:1.5px solid transparent;}
-    .btn-primary{background:var(--navy);color:#fff;}
-    .btn-primary:hover{background:var(--royal);}
+    .hero-cta{display:flex;gap:0.7rem;flex-wrap:wrap;}
+    .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.8rem 1.4rem;border-radius:100px;
+      font-size:0.9rem;font-weight:600;text-decoration:none;cursor:pointer;border:1.5px solid transparent;}
+    .btn-primary{background:var(--ink);color:#fff;}
+    .btn-primary:hover{background:var(--navy);}
     .btn-ghost{border-color:var(--line-2);color:var(--ink);background:#fff;}
-    .btn-ghost:hover{border-color:var(--navy);}
+    .btn-ghost:hover{border-color:var(--ink);}
+    .hero-photo{width:clamp(220px,24vw,300px);height:auto;aspect-ratio:4/5;object-fit:cover;
+      border-radius:18px;display:block;background:var(--bg-soft);}
 
-    .hero-photo-wrap{position:relative;}
-    .hero-photo{width:clamp(230px,28vw,330px);height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:24px;
-      box-shadow:var(--shadow-lg);display:block;}
-    .hero-photo-ring{position:absolute;inset:-14px;border-radius:34px;border:1px solid var(--line);z-index:-1;}
-    .hero-badge{position:absolute;left:-18px;bottom:26px;background:#fff;border-radius:16px;
-      box-shadow:var(--shadow);padding:0.7rem 1rem;display:flex;align-items:center;gap:0.7rem;}
-    .hero-badge .crest{width:34px;height:34px;object-fit:contain;}
-    .hero-badge .bt{font-family:'Inter Tight',sans-serif;font-weight:600;font-size:0.82rem;line-height:1.2;color:var(--navy);}
-    .hero-badge .bt small{display:block;font-family:'Inter',sans-serif;font-weight:500;font-size:0.7rem;color:var(--muted);}
+    .areas-wrap{margin-top:6rem;}
+    .areas-head{display:flex;align-items:baseline;justify-content:space-between;gap:2rem;
+      border-top:1px solid var(--line-2);padding-top:1.5rem;margin-bottom:2.6rem;}
+    .areas-title{font-family:'Inter Tight',sans-serif;font-weight:600;font-size:1.5rem;letter-spacing:-0.02em;color:var(--ink);}
+    .areas-head .eyebrow{color:var(--muted-2);}
+    .areas{display:grid;grid-template-columns:repeat(3,1fr);gap:2.8rem 3rem;}
+    .area .num{display:block;font-size:0.78rem;font-weight:500;color:var(--muted-2);
+      font-variant-numeric:tabular-nums;letter-spacing:0.04em;margin-bottom:0.9rem;}
+    .area h3{font-family:'Inter Tight',sans-serif;font-weight:600;font-size:1.18rem;line-height:1.3;
+      letter-spacing:-0.015em;color:var(--ink);margin-bottom:0.45rem;}
+    .area p{font-size:0.94rem;color:var(--muted);line-height:1.55;}
+    .area-link{display:block;text-decoration:none;}
+    .area-link .num{color:var(--navy);}
+    .area-link h3{color:var(--navy);}
+    .area-link:hover h3{text-decoration:underline;}
 
     /* ─── SECTION SHELL ─── */
     .sec{padding:8rem 0;}
@@ -97,26 +104,7 @@
     .sec-title{font-family:'Inter Tight',sans-serif;font-weight:700;
       font-size:clamp(2.3rem,5vw,3.4rem);letter-spacing:-0.03em;line-height:1.02;color:var(--ink);}
 
-    /* ─── RESEARCH ─── */
-    .research-top{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:3.5rem;}
-    .research-lead{font-family:'Inter Tight',sans-serif;font-weight:500;font-size:clamp(1.2rem,2.2vw,1.55rem);
-      line-height:1.4;letter-spacing:-0.015em;color:var(--muted);max-width:42ch;margin-top:1.2rem;}
-    .research-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:4rem;align-items:center;}
-    .focus-list{display:flex;flex-direction:column;}
-    .focus-item{position:relative;padding:1.5rem 0;border-top:1px solid var(--line);cursor:default;}
-    .focus-item:last-child{border-bottom:1px solid var(--line);}
-    .focus-item::before{content:"";position:absolute;left:-4px;top:50%;width:0;height:0;border-radius:50%;
-      background:var(--blue);transform:translateY(-50%);}
-    
-    .focus-name{font-family:'Inter Tight',sans-serif;font-weight:600;font-size:1.4rem;letter-spacing:-0.02em;
-      color:var(--ink);margin-bottom:0.35rem;}
-    .focus-desc{font-size:0.96rem;color:var(--muted);line-height:1.55;}
-    .focus-item:hover .focus-name{color:var(--navy);}
-    
-    .sphere-block{display:flex;flex-direction:column;align-items:center;gap:1rem;}
-    #sphere{width:100%;max-width:420px;aspect-ratio:1;display:block;}
-    .sphere-cap{font-size:0.82rem;color:var(--muted-2);text-align:center;letter-spacing:0.01em;max-width:34ch;}
-    .sphere-cap b{color:var(--navy);font-weight:600;}
+    #publications{border-top:1px solid var(--line);}
 
     /* ─── PUBLICATIONS ─── */
     .pub{position:relative;display:flex;gap:2rem;align-items:stretch;background:#fff;
@@ -206,20 +194,21 @@
 
     /* ─── RESPONSIVE ─── */
     @media (max-width:920px){
-      .hero-grid{grid-template-columns:1fr;gap:3rem;}
+      .hero-grid{grid-template-columns:1fr;gap:2.4rem;}
       .hero-photo-wrap{order:-1;}
-      .hero-photo{width:clamp(200px,46vw,280px);}
-      .research-grid{grid-template-columns:1fr;gap:3rem;}
-      .sphere-block{order:-1;}
-      #sphere{max-width:340px;}
+      .hero-photo{width:clamp(180px,40vw,240px);}
+      .areas{grid-template-columns:repeat(2,1fr);}
     }
     @media (max-width:760px){
       .nav-links li:not(.cv-li){display:none;}
-      .research-top{flex-direction:column;align-items:flex-start;gap:0.6rem;}
+      .areas-head{flex-direction:column;gap:0.4rem;}
     }
     @media (max-width:680px){
       html{font-size:16px;}.wrap{padding:0 1.5rem;}nav{padding:0 1.5rem;}
       .sec{padding:5rem 0;}.contact{padding:5rem 0;}
+      .hero{padding:120px 0 4.5rem;}.areas-wrap{margin-top:4rem;}
+      .areas{grid-template-columns:1fr;gap:2rem;}
+
       .pub{flex-direction:column;gap:1.2rem;}.pub-fig{flex:0 0 auto;width:100%;}
       .news{grid-template-columns:1fr;gap:0.4rem;}.news-date{padding-top:0;}
     }
@@ -239,77 +228,68 @@
   </ul>
 </nav>
 
-<!-- HERO -->
+<!-- HERO + RESEARCH -->
 <header class="hero" id="top">
-  <div class="wrap hero-grid">
-    <div class="hero-text">
-      <span class="eyebrow hero-eye">Duke University · Biomedical Engineering</span>
-      <h1 class="hero-name">Xinge <span class="last">Guo</span></h1>
-      <div class="hero-role">M.S. in Biomedical Engineering, Vision &amp; Image Processing Lab,
-        advised by <a href="https://people.duke.edu/~sf59/" target="_blank">Prof. Sina Farsiu</a></div>
-      <p class="hero-lead">Computer vision and machine learning for <span class="hl">medical image analysis</span>,
-        from image segmentation to clinical decision-making.</p>
-      <div class="hero-cta">
-        <a href="mailto:xinge.guo@duke.edu" class="btn btn-primary">Email me</a>
-        <a href="https://guo777777.github.io/CV-Xinge%20Guo%20updated.pdf" target="_blank" class="btn btn-ghost">CV / Résumé</a>
-        <a href="https://scholar.google.com/citations?user=O4VUUiwAAAAJ&hl=zh-CN" target="_blank" class="btn btn-ghost">Google Scholar ↗</a>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <span class="eyebrow hero-eye">Duke University · Biomedical Engineering</span>
+        <h1 class="hero-name">Xinge <span class="last">Guo</span></h1>
+        <div class="hero-role">M.S. in Biomedical Engineering, Vision &amp; Image Processing Lab,
+          advised by <a href="https://people.duke.edu/~sf59/" target="_blank">Prof. Sina Farsiu</a></div>
+        <p class="hero-lead">Computer vision and machine learning for <span class="hl">medical image analysis</span>,
+          from image segmentation to clinical decision-making.</p>
+        <div class="hero-cta">
+          <a href="mailto:xinge.guo@duke.edu" class="btn btn-primary">Email me</a>
+          <a href="https://guo777777.github.io/CV-Xinge%20Guo%20updated.pdf" target="_blank" class="btn btn-ghost">CV / Résumé</a>
+          <a href="https://scholar.google.com/citations?user=O4VUUiwAAAAJ&hl=zh-CN" target="_blank" class="btn btn-ghost">Google Scholar ↗</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <img src="./assets/profile.webp" alt="Xinge Guo" class="hero-photo" width="900" height="900">
       </div>
     </div>
-    <div class="hero-photo-wrap">
-      <span class="hero-photo-ring"></span>
-      <img src="./assets/profile.webp" alt="Xinge Guo" class="hero-photo" width="900" height="900">
-      <div class="hero-badge">
-        <img src="./assets/crest.webp" alt="" class="crest" width="160" height="209">
-        <div class="bt">Duke BME<small>VIP Lab · Durham, NC</small></div>
+
+    <div class="areas-wrap" id="research">
+      <div class="areas-head">
+        <h2 class="areas-title">What I work on</h2>
+        <span class="eyebrow">Research</span>
+      </div>
+      <div class="areas">
+        <div class="area">
+          <span class="num">01</span>
+          <h3>Medical Image Segmentation</h3>
+          <p>Vessel, bone, and landmark segmentation and measurement across CT, CBCT, DSA, and echocardiography.</p>
+        </div>
+        <div class="area">
+          <span class="num">02</span>
+          <h3>Representation Learning</h3>
+          <p>Learning structured feature representations, including hyperspherical feature geometry and autoencoder-based embeddings.</p>
+        </div>
+        <div class="area">
+          <span class="num">03</span>
+          <h3>Clinical Decision Making &amp; Treatment Planning</h3>
+          <p>Quantitative measurement and severity stratification to support diagnosis and treatment planning.</p>
+        </div>
+        <div class="area">
+          <span class="num">04</span>
+          <h3>Mechanistic Interpretability</h3>
+          <p>Looking inside medical vision transformers to understand which features actually drive their predictions.</p>
+        </div>
+        <div class="area">
+          <span class="num">05</span>
+          <h3>Vision-Language Models</h3>
+          <p>VLMs and multimodal LLMs as priors and evaluators for medical imaging tasks.</p>
+        </div>
+        <a class="area area-link" href="#publications">
+          <span class="num">→</span>
+          <h3>Selected publications</h3>
+          <p>Papers and preprints from these directions.</p>
+        </a>
       </div>
     </div>
   </div>
 </header>
-
-<!-- RESEARCH -->
-<section class="sec soft" id="research">
-  <div class="wrap">
-    <div class="research-top">
-      <div>
-        <span class="eyebrow sec-eye">Research</span>
-        <h2 class="sec-title">What I work on</h2>
-      </div>
-      <p class="research-lead">I build computer-vision and machine-learning methods for medical image analysis,
-        with a focus on image segmentation, representation learning, and clinical decision-making.</p>
-    </div>
-
-    <div class="research-grid">
-      <div class="focus-list">
-        <div class="focus-item">
-          <div class="focus-name">Medical Image Segmentation</div>
-          <div class="focus-desc">Vessel, bone, and landmark segmentation and measurement across CT, CBCT, DSA, and echocardiography.</div>
-        </div>
-        <div class="focus-item">
-          <div class="focus-name">Representation Learning</div>
-          <div class="focus-desc">Learning structured feature representations, including hyperspherical feature geometry and autoencoder-based embeddings.</div>
-        </div>
-        <div class="focus-item">
-          <div class="focus-name">Clinical Decision Making &amp; Treatment Planning</div>
-          <div class="focus-desc">Quantitative measurement and severity stratification to support diagnosis and treatment planning.</div>
-        </div>
-        <div class="focus-item">
-          <div class="focus-name">Mechanistic Interpretability</div>
-          <div class="focus-desc">Looking inside medical vision transformers to understand which features actually drive their predictions.</div>
-        </div>
-        <div class="focus-item">
-          <div class="focus-name">Vision-Language Models</div>
-          <div class="focus-desc">VLMs and multimodal LLMs as priors and evaluators for medical imaging tasks.</div>
-        </div>
-      </div>
-
-      <div class="sphere-block">
-        <canvas id="sphere"></canvas>
-        <p class="sphere-cap"><b>Hyperspherical feature geometry</b>, a current research direction:
-          representing visual attributes as directions on a unit sphere.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- PUBLICATIONS -->
 <section class="sec" id="publications">
@@ -561,33 +541,8 @@
   var spy=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
     Object.values(navmap).forEach(function(a){a.classList.remove('active');});
     if(navmap[e.target.id])navmap[e.target.id].classList.add('active');}});},{rootMargin:'-45% 0px -50% 0px'});
-  document.querySelectorAll('section[id]').forEach(function(s){spy.observe(s);});
+  document.querySelectorAll('section[id], #research').forEach(function(s){spy.observe(s);});
 
-  /* hyperspherical feature field, static drawing */
-  (function(){
-    var canvas=document.getElementById('sphere'); if(!canvas)return; var ctx=canvas.getContext('2d');
-    var N=460, pts=[], ga=Math.PI*(3-Math.sqrt(5));
-    for(var i=0;i<N;i++){var y=1-(i/(N-1))*2,r=Math.sqrt(1-y*y),t=i*ga;pts.push([Math.cos(t)*r,y,Math.sin(t)*r]);}
-    var axes=[[1,0,0],[-1,0,0],[0,1,0],[0,-1,0],[0,0,1],[0,0,-1]];
-    function rotY(p,a){var c=Math.cos(a),s=Math.sin(a);return [c*p[0]+s*p[2],p[1],-s*p[0]+c*p[2]];}
-    function rotX(p,a){var c=Math.cos(a),s=Math.sin(a);return [p[0],c*p[1]-s*p[2],s*p[1]+c*p[2]];}
-    function draw(){
-      var dpr=Math.min(window.devicePixelRatio||1,2), W=canvas.clientWidth, H=canvas.clientHeight;
-      canvas.width=W*dpr; canvas.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
-      var R=Math.min(W,H)*0.40, cx=W*0.5, cy=H*0.5, ay=0.5, tilt=-0.35;
-      ctx.clearRect(0,0,W,H);
-      for(var i=0;i<N;i++){var q=rotX(rotY(pts[i],ay),tilt), d=(q[2]+1)/2;
-        var g=33+(1-d)*40, b=105+(1-d)*60, al=0.10+d*0.45;
-        ctx.beginPath();ctx.arc(cx+q[0]*R,cy-q[1]*R,0.6+d*1.9,0,6.283);
-        ctx.fillStyle='rgba('+(1+(1-d)*30|0)+','+(g|0)+','+(b|0)+','+al+')';ctx.fill();}
-      for(var k=0;k<axes.length;k++){var q=rotX(rotY(axes[k],ay),tilt), d=(q[2]+1)/2, sx=cx+q[0]*R, sy=cy-q[1]*R;
-        ctx.strokeStyle='rgba(31,95,204,'+(0.06+d*0.22)+')';ctx.lineWidth=1.2;
-        ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(sx,sy);ctx.stroke();
-        ctx.beginPath();ctx.arc(sx,sy,2.5+d*3,0,6.283);ctx.fillStyle='rgba(31,95,204,'+(0.35+d*0.55)+')';ctx.fill();}
-    }
-    var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(draw,150);});
-    draw();
-  })();
 </script>
 </body>
 </html>
